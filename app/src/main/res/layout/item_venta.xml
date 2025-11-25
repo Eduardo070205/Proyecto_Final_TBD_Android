@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tv_id_venta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="ID Venta: "/>
+
+        <TextView
+            android:id="@+id/tv_fecha_venta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fecha Venta: "/>
+
+        <TextView
+            android:id="@+id/tv_precio_final"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Precio Final: "/>
+
+        <TextView
+            android:id="@+id/tv_forma_pago"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Forma Pago: "/>
+
+        <TextView
+            android:id="@+id/tv_id_cliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ID Cliente: "/>
+
+        <TextView
+            android:id="@+id/tv_id_empleado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ID Empleado: "/>
+
+        <TextView
+            android:id="@+id/tv_id_vehiculo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ID Vehículo: "/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
