@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tv_id_vehiculo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="ID Vehículo: "/>
+
+        <TextView
+            android:id="@+id/tv_numero_serie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Número de Serie: "/>
+
+        <TextView
+            android:id="@+id/tv_id_modelo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ID Modelo: "/>
+
+        <TextView
+            android:id="@+id/tv_fecha_fabricacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fecha Fabricación: "/>
+
+        <TextView
+            android:id="@+id/tv_precio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Precio: "/>
+
+        <TextView
+            android:id="@+id/tv_kilometraje"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kilometraje: "/>
+
+        <TextView
+            android:id="@+id/tv_fecha_entrada"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fecha Entrada: "/>
+
+        <TextView
+            android:id="@+id/tv_tipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tipo: "/>
+
+        <TextView
+            android:id="@+id/tv_estado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Estado: "/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
