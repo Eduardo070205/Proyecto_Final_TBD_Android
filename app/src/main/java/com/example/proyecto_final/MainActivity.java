@@ -1,6 +1,8 @@
 package com.example.proyecto_final;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,4 +23,21 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
     }
+
+    public void abrirActivity(View v) {
+
+
+        Intent i = null;
+
+        if (v.getId() == R.id.btnIniciarSesion) {
+
+            i = new Intent(this, ActivityMenu.class);
+
+        }
+
+
+        startActivity(i);
+
+    }
+
 }

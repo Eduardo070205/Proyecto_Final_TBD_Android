@@ -21,6 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ActivityMenu"></activity>
+        <activity android:name=".ActivityAltasVehiculos"></activity>
+
     </application>
 
 </manifest>

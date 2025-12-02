@@ -11,5 +11,16 @@
     <string name="txt_btn_eliminar">Eliminar</string>
     <string name="txt_btn_modificar">Modificar</string>
     <string name="txt_btn_Consultar">Consultar</string>
+    <string name="txt_titulo_agregar_vehiculos">Agregar Vehículos</string>
+    <string name="txt_id_vehiculo">ID Vehículo</string>
+    <string name="txt_num_serie">Número Serie</string>
+    <string name="txt_id_modelo">ID Modelo</string>
+    <string name="txt_fecha_fabricacion">Fecha Fabricación</string>
+    <string name="txt_precio">Precio</string>
+    <string name="txt_kilometraje">Kilometraje</string>
+    <string name="txt_fecha_entrada">Fecha Entrada</string>
+    <string name="txt_tipo">Tipo</string>
+    <string name="txt_estado">Estado</string>
+    <string name="txt_btn_cancelar">Cancelar</string>
 
 </resources>

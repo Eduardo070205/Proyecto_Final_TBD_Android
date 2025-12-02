@@ -5,72 +5,6 @@
     android:layout_width="match_parent"
              android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btnVehiculosAgregar"
-        android:layout_width="156dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="204dp"
-        android:layout_marginEnd="15dp"
-        android:text="@string/txt_btn_agregar"
-        app:layout_constraintEnd_toStartOf="@+id/btnModelosEliminar"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <Button
-        android:id="@+id/btnVehiculosConsultar"
-        android:layout_width="156dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="208dp"
-        android:layout_marginEnd="33dp"
-        android:text="@string/txt_btn_Consultar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/btnModelosModificar"
-        app:layout_constraintTop_toBottomOf="@+id/btnModelosEliminar" />
-
-    <Button
-        android:id="@+id/btnVehiculosModificar"
-        android:layout_width="156dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="208dp"
-        android:layout_marginEnd="15dp"
-        android:text="@string/txt_btn_modificar"
-        app:layout_constraintEnd_toStartOf="@+id/btnModelosConsultar"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnModelosAgregar" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="99dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="416dp"
-        android:layout_marginEnd="296dp"
-        android:text="@string/txt_vehiculos"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnVehiculosEliminar"
-        android:layout_width="156dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="260dp"
-        android:layout_marginEnd="33dp"
-        android:text="@string/txt_btn_eliminar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/btnModelosAgregar"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
     <TextView
         android:id="@+id/textView4"
         android:layout_width="139dp"
@@ -84,39 +18,119 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="146dp"
-        android:layout_height="132dp"
-        android:layout_marginStart="133dp"
-        android:layout_marginEnd="133dp"
+    <Button
+        android:id="@+id/btnModelosConsultar"
+        android:layout_width="156dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="33dp"
+        android:backgroundTint="@color/crema_base"
+        android:text="@string/txt_btn_Consultar"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnModelosModificar"
+        app:layout_constraintTop_toBottomOf="@+id/btnModelosEliminar" />
+
+    <Button
+        android:id="@+id/btnModelosModificar"
+        android:layout_width="156dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="15dp"
+        android:backgroundTint="@color/crema_base"
+        android:text="@string/txt_btn_modificar"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/btnModelosConsultar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:srcCompat="@drawable/logo" />
+        app:layout_constraintTop_toBottomOf="@+id/btnModelosAgregar" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="99dp"
         android:layout_height="37dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="219dp"
+        android:layout_marginTop="284dp"
         android:layout_marginEnd="296dp"
         android:text="@string/txt_modelos"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnVehiculosModificar"
+        android:layout_width="156dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="15dp"
+        android:backgroundTint="@color/crema_base"
+        android:text="@string/txt_btn_modificar"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/btnModelosConsultar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnModelosAgregar" />
 
     <Button
         android:id="@+id/btnModelosAgregar"
         android:layout_width="156dp"
         android:layout_height="57dp"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="15dp"
+        android:backgroundTint="@color/crema_base"
         android:text="@string/txt_btn_agregar"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/btnModelosEliminar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <Button
+        android:id="@+id/btnVehiculosEliminar"
+        android:layout_width="156dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="33dp"
+        android:backgroundTint="@color/crema_base"
+        android:text="@string/txt_btn_eliminar"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/btnModelosAgregar"
+        app:layout_constraintTop_toBottomOf="@+id/btnVehiculosConsultar" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="99dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="480dp"
+        android:layout_marginEnd="296dp"
+        android:text="@string/txt_vehiculos"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnVehiculosAgregar"
+        android:layout_width="156dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="212dp"
+        android:layout_marginEnd="15dp"
+        android:backgroundTint="@color/crema_base"
+        android:onClick="abrirActivity"
+        android:text="@string/txt_btn_agregar"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/btnModelosEliminar"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
@@ -125,34 +139,42 @@
         android:layout_width="156dp"
         android:layout_height="57dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="66dp"
+        android:layout_marginTop="263dp"
         android:layout_marginEnd="33dp"
+        android:backgroundTint="@color/crema_base"
         android:text="@string/txt_btn_eliminar"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnModelosAgregar"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <Button
-        android:id="@+id/btnModelosModificar"
-        android:layout_width="156dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="15dp"
-        android:text="@string/txt_btn_modificar"
-        app:layout_constraintEnd_toStartOf="@+id/btnModelosConsultar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnModelosAgregar" />
-
-    <Button
-        android:id="@+id/btnModelosConsultar"
+        android:id="@+id/btnVehiculosConsultar"
         android:layout_width="156dp"
         android:layout_height="57dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="140dp"
         android:layout_marginEnd="33dp"
+        android:backgroundTint="@color/crema_base"
         android:text="@string/txt_btn_Consultar"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/btnModelosModificar"
         app:layout_constraintTop_toBottomOf="@+id/btnModelosEliminar" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+
+        android:layout_width="181dp"
+        android:layout_height="211dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.155"
+        android:src="@drawable/logo"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
