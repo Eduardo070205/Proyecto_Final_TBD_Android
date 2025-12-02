@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Proyecto_Final</string>
+    <string name="txt_titulo_InicioSesion">Iniciar Sesión</string>
+    <string name="txt_usuario">Usuario</string>
+    <string name="txt_contraseña">Contraseña</string>
+    <string name="txt_btn_restaurar">Restaurar</string>
+    <string name="txt_titulo_menu">Menú Principal</string>
+    <string name="txt_modelos">Modelos</string>
+    <string name="txt_vehiculos">Vehículos</string>
+    <string name="txt_btn_agregar">Agregar</string>
+    <string name="txt_btn_eliminar">Eliminar</string>
+    <string name="txt_btn_modificar">Modificar</string>
+    <string name="txt_btn_Consultar">Consultar</string>
+
+</resources>
