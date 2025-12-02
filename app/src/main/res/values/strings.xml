@@ -24,5 +24,7 @@
     <string name="txt_btn_cancelar">Cancelar</string>
     <string name="txt_titulo_eliminar_vehiculos">Eliminar Vehículos</string>
     <string name="txt_btn_buscar">Buscar</string>
+    <string name="txt_titulo_actualizar_vehiculos">Actualizar Vehículos</string>
+    <string name="txt_btn_actualizar">Actualizar</string>
 
 </resources>

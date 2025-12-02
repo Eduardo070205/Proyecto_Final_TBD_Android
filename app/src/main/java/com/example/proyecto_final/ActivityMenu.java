@@ -28,6 +28,10 @@ public class ActivityMenu extends Activity {
 
             i = new Intent(this, ActivityEliminarVehiculos.class);
 
+        }else if (v.getId() == R.id.btnVehiculosModificar){
+
+            i = new Intent(this, ActivityModificarVehiculos.class);
+
         }
 
 
