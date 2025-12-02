@@ -22,5 +22,7 @@
     <string name="txt_tipo">Tipo</string>
     <string name="txt_estado">Estado</string>
     <string name="txt_btn_cancelar">Cancelar</string>
+    <string name="txt_titulo_eliminar_vehiculos">Eliminar Vehículos</string>
+    <string name="txt_btn_buscar">Buscar</string>
 
 </resources>

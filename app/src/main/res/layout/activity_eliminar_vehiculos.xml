@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="172dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="119dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="120dp"
+        android:text="@string/txt_titulo_eliminar_vehiculos"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="115dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="71dp"
+        android:layout_marginEnd="1dp"
+        android:text="@string/txt_id_vehiculo"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/cajaVehiculosIDVehiculoEliminar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="115dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="132dp"
+        android:layout_marginEnd="1dp"
+        android:text="@string/txt_num_serie"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/cajaVehiculosIDVehiculoEliminar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="115dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="268dp"
+        android:layout_marginEnd="1dp"
+        android:text="@string/txt_fecha_fabricacion"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/cajaVehiculosIDVehiculoEliminar"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="115dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="332dp"
+        android:layout_marginEnd="1dp"
+        android:text="@string/txt_precio"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/cajaVehiculosIDVehiculoEliminar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="115dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="392dp"
+        android:layout_marginEnd="1dp"
+        android:text="@string/txt_kilometraje"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/cajaVehiculosIDVehiculoEliminar"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="115dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="456dp"
+        android:layout_marginEnd="1dp"
+        android:text="@string/txt_fecha_entrada"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/cajaVehiculosIDVehiculoEliminar"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="115dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="520dp"
+        android:layout_marginEnd="1dp"
+        android:text="@string/txt_tipo"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/cajaVehiculosIDVehiculoEliminar"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="115dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="588dp"
+        android:layout_marginEnd="1dp"
+        android:text="@string/txt_estado"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/cajaVehiculosIDVehiculoEliminar"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="115dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="204dp"
+        android:layout_marginEnd="1dp"
+        android:text="@string/txt_id_modelo"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/cajaVehiculosIDVehiculoEliminar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/cajaVehiculosIDVehiculoEliminar"
+        android:layout_width="265dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="30dp"
+        android:ems="10"
+        android:hint="ID Vehiculo"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView17"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <EditText
+        android:id="@+id/cajaVehiculosNumSerieEliminar"
+        android:layout_width="265dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="30dp"
+        android:ems="10"
+        android:hint="@string/txt_num_serie"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView17"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <EditText
+        android:id="@+id/cajaVehiculosFechaFabriEliminar"
+        android:layout_width="265dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="196dp"
+        android:layout_marginEnd="30dp"
+        android:ems="10"
+        android:hint="@string/txt_fecha_fabricacion"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView17"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <EditText
+        android:id="@+id/cajaVehiculosPrecioEliminar"
+        android:layout_width="265dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="260dp"
+        android:layout_marginEnd="30dp"
+        android:ems="10"
+        android:hint="@string/txt_precio"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView17"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <EditText
+        android:id="@+id/cajaVehiculosKilometrajeEliminar"
+        android:layout_width="265dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="324dp"
+        android:layout_marginEnd="30dp"
+        android:ems="10"
+        android:hint="@string/txt_kilometraje"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView17"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <EditText
+        android:id="@+id/cajaVehiculosFechaEntraEliminar"
+        android:layout_width="265dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="388dp"
+        android:layout_marginEnd="30dp"
+        android:ems="10"
+        android:hint="@string/txt_fecha_entrada"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView17"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <Spinner
+        android:id="@+id/spinnerVehiculosIDModeloEliminar"
+        android:layout_width="262dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView19"
+        app:layout_constraintTop_toBottomOf="@+id/cajaVehiculosNumSerieEliminar" />
+
+    <Spinner
+        android:id="@+id/spinnerVehiculosEstadoEliminar"
+        android:layout_width="262dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="396dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView19"
+        app:layout_constraintTop_toBottomOf="@+id/cajaVehiculosNumSerieEliminar" />
+
+    <Spinner
+        android:id="@+id/spinnerVehiculosTipoEliminar"
+        android:layout_width="262dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="328dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView19"
+        app:layout_constraintTop_toBottomOf="@+id/cajaVehiculosNumSerieEliminar" />
+
+    <Button
+        android:id="@+id/btnVehiculosEliminarEliminar"
+        android:layout_width="108dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="15dp"
+        android:backgroundTint="@color/crema_base"
+        android:text="@string/txt_btn_eliminar"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/btnVehiculosCancelarEliminar"
+        app:layout_constraintStart_toEndOf="@+id/btnVehiculosBuscarEliminar"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerVehiculosEstadoEliminar" />
+
+    <Button
+        android:id="@+id/btnVehiculosCancelarEliminar"
+        android:layout_width="108dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="27dp"
+        android:backgroundTint="@color/crema_base"
+        android:text="@string/txt_btn_cancelar"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnVehiculosEliminarEliminar"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerVehiculosEstadoEliminar" />
+
+    <Button
+        android:id="@+id/btnVehiculosBuscarEliminar"
+        android:layout_width="108dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="15dp"
+        android:backgroundTint="@color/crema_base"
+        android:text="@string/txt_btn_buscar"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/btnVehiculosEliminarEliminar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerVehiculosEstadoEliminar" />
+</androidx.constraintlayout.widget.ConstraintLayout>
