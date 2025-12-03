@@ -28,5 +28,15 @@
     <string name="txt_btn_actualizar">Actualizar</string>
     <string name="txt_titulo_consultas_vehiculos">Buscar Vehículos</string>
     <string name="txt_rdio_todos">Mostrar Todos</string>
+    <string name="txt_tiulo_agregar_modelo">Agregar Modelo</string>
+    <string name="txt_nombre_modelo">Nombre Modelo</string>
+    <string name="txt_anio_modelo">Año Modelo</string>
+    <string name="txt_fabricante">Fabricante</string>
+    <string name="txt_numero_cilindros">Número Cilindros</string>
+    <string name="txt_numero_puertas">Número Puertas</string>
+    <string name="txt_peso">Peso (KG)</string>
+    <string name="txt_capacidad_pasajeros">Capacidad Pasajeros</string>
+    <string name="txt_color_base">Color Base</string>
+    <string name="txt_pais_fabricacion">País Fabricación</string>
 
 </resources>

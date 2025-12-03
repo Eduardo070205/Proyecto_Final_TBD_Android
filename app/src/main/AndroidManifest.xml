@@ -26,6 +26,7 @@
         <activity android:name=".ActivityEliminarVehiculos"></activity>
         <activity android:name=".ActivityModificarVehiculos"></activity>
         <activity android:name=".ActivityConsultasVehiculos"></activity>
+        <activity android:name=".ActivityAltasModelos"></activity>
 
     </application>
 

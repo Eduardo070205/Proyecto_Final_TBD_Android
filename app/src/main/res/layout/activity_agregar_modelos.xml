@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView43"
+        android:layout_width="99dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="208dp"
+        android:text="@string/txt_peso"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/cajaModelosNombreModeloAgregar"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView38" />
+
+    <TextView
+        android:id="@+id/textView44"
+        android:layout_width="99dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="260dp"
+        android:text="@string/txt_capacidad_pasajeros"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/cajaModelosNombreModeloAgregar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView38" />
+
+    <TextView
+        android:id="@+id/textView45"
+        android:layout_width="99dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="312dp"
+        android:text="@string/txt_color_base"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/cajaModelosNombreModeloAgregar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView38" />
+
+    <TextView
+        android:id="@+id/textView46"
+        android:layout_width="99dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="364dp"
+        android:text="@string/txt_pais_fabricacion"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/cajaModelosNombreModeloAgregar"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView38" />
+
+    <TextView
+        android:id="@+id/textView42"
+        android:layout_width="99dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="156dp"
+        android:text="@string/txt_numero_puertas"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/cajaModelosNombreModeloAgregar"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView38" />
+
+    <TextView
+        android:id="@+id/textView37"
+        android:layout_width="177dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="137dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="137dp"
+        android:text="@string/txt_tiulo_agregar_modelo"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView38"
+        android:layout_width="99dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="70dp"
+        android:text="@string/txt_nombre_modelo"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/cajaModelosNombreModeloAgregar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView39"
+        android:layout_width="99dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="14dp"
+        android:text="@string/txt_anio_modelo"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/cajaModelosNombreModeloAgregar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView38" />
+
+    <TextView
+        android:id="@+id/textView40"
+        android:layout_width="99dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="52dp"
+        android:text="@string/txt_fabricante"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/cajaModelosNombreModeloAgregar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView38" />
+
+    <TextView
+        android:id="@+id/textView41"
+        android:layout_width="99dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="104dp"
+        android:text="@string/txt_numero_cilindros"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/cajaModelosNombreModeloAgregar"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView38" />
+
+    <EditText
+        android:id="@+id/cajaModelosNombreModeloAgregar"
+        android:layout_width="287dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="33dp"
+        android:ems="10"
+        android:hint="@string/txt_nombre_modelo"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView38"
+        app:layout_constraintTop_toBottomOf="@+id/textView37" />
+
+    <Spinner
+        android:id="@+id/spinnerModelosAnioModeloAgregar"
+        android:layout_width="285dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView39"
+        app:layout_constraintTop_toBottomOf="@+id/cajaModelosNombreModeloAgregar" />
+
+    <Spinner
+        android:id="@+id/spinnerModelosCilindrosAgregar"
+        android:layout_width="285dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView39"
+        app:layout_constraintTop_toBottomOf="@+id/cajaModelosNombreModeloAgregar" />
+
+    <EditText
+        android:id="@+id/cajaModelosFabricanteAgregar"
+        android:layout_width="286dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="10dp"
+        android:ems="10"
+        android:hint="@string/txt_fabricante"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView39"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerModelosAnioModeloAgregar" />
+
+    <EditText
+        android:id="@+id/cajaModelosColorAgregar"
+        android:layout_width="286dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="260dp"
+        android:layout_marginEnd="12dp"
+        android:ems="10"
+        android:hint="@string/txt_color_base"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView44"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerModelosAnioModeloAgregar" />
+
+    <EditText
+        android:id="@+id/cajaModelosPaisAgregar"
+        android:layout_width="286dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="312dp"
+        android:layout_marginEnd="12dp"
+        android:ems="10"
+        android:hint="@string/txt_pais_fabricacion"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView45"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerModelosAnioModeloAgregar" />
+
+    <EditText
+        android:id="@+id/cajaModelosPuertasAgregar"
+        android:layout_width="287dp"
+        android:layout_height="54dp"
+        android:ems="10"
+        android:hint="@string/txt_numero_puertas"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/textView42"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerModelosCilindrosAgregar" />
+
+    <EditText
+        android:id="@+id/cajaModelosPasajerosAgregar"
+        android:layout_width="287dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="104dp"
+        android:ems="10"
+        android:hint="@string/txt_capacidad_pasajeros"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/textView42"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerModelosCilindrosAgregar" />
+
+    <EditText
+        android:id="@+id/cajaModelosPesoAgregar"
+        android:layout_width="286dp"
+        android:layout_height="51dp"
+        android:ems="10"
+        android:hint="@string/txt_peso"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toEndOf="@+id/textView43"
+        app:layout_constraintTop_toBottomOf="@+id/cajaModelosPuertasAgregar" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="113dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="67dp"
+        android:layout_marginEnd="15dp"
+        android:backgroundTint="@color/crema_base"
+        android:text="@string/txt_btn_agregar"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView46" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="113dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="69dp"
+        android:layout_marginEnd="15dp"
+        android:backgroundTint="@color/crema_base"
+        android:text="@string/txt_btn_restaurar"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/button3"
+        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/cajaModelosPaisAgregar" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="113dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="69dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/crema_base"
+        android:text="@string/txt_btn_cancelar"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/cajaModelosPaisAgregar" />
+</androidx.constraintlayout.widget.ConstraintLayout>
