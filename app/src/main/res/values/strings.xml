@@ -26,5 +26,7 @@
     <string name="txt_btn_buscar">Buscar</string>
     <string name="txt_titulo_actualizar_vehiculos">Actualizar Vehículos</string>
     <string name="txt_btn_actualizar">Actualizar</string>
+    <string name="txt_titulo_consultas_vehiculos">Buscar Vehículos</string>
+    <string name="txt_rdio_todos">Mostrar Todos</string>
 
 </resources>
