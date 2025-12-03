@@ -38,5 +38,6 @@
     <string name="txt_capacidad_pasajeros">Capacidad Pasajeros</string>
     <string name="txt_color_base">Color Base</string>
     <string name="txt_pais_fabricacion">País Fabricación</string>
+    <string name="txt_titulo_bajas_modelos">Eliminar Modelos</string>
 
 </resources>

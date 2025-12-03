@@ -40,6 +40,10 @@ public class ActivityMenu extends Activity {
 
             i = new Intent(this, ActivityAltasModelos.class);
 
+        }else if (v.getId() == R.id.btnModelosEliminar){
+
+            i = new Intent(this, ActivityEliminarModelos.class);
+
         }
 
 
