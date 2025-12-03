@@ -28,7 +28,7 @@
         android:text="@string/txt_id_modelo"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNumber"
+        app:layout_constraintEnd_toStartOf="@+id/cajaModelosIDModeloBajas"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
@@ -41,7 +41,7 @@
         android:layout_marginTop="112dp"
         android:text="@string/txt_nombre_modelo"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNumber"
+        app:layout_constraintEnd_toStartOf="@+id/cajaModelosIDModeloBajas"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -54,7 +54,7 @@
         android:layout_marginTop="528dp"
         android:text="@string/txt_pais_fabricacion"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNumber"
+        app:layout_constraintEnd_toStartOf="@+id/cajaModelosIDModeloBajas"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -66,7 +66,7 @@
         android:layout_marginStart="16dp"
         android:text="@string/txt_anio_modelo"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNumber"
+        app:layout_constraintEnd_toStartOf="@+id/cajaModelosIDModeloBajas"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView49" />
@@ -79,7 +79,7 @@
         android:layout_marginTop="216dp"
         android:text="@string/txt_fabricante"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNumber"
+        app:layout_constraintEnd_toStartOf="@+id/cajaModelosIDModeloBajas"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -92,7 +92,7 @@
         android:layout_marginTop="268dp"
         android:text="@string/txt_numero_cilindros"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNumber"
+        app:layout_constraintEnd_toStartOf="@+id/cajaModelosIDModeloBajas"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -105,7 +105,7 @@
         android:layout_marginTop="320dp"
         android:text="@string/txt_numero_puertas"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNumber"
+        app:layout_constraintEnd_toStartOf="@+id/cajaModelosIDModeloBajas"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -118,7 +118,7 @@
         android:layout_marginTop="372dp"
         android:text="@string/txt_peso"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNumber"
+        app:layout_constraintEnd_toStartOf="@+id/cajaModelosIDModeloBajas"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -131,7 +131,7 @@
         android:layout_marginTop="424dp"
         android:text="@string/txt_capacidad_pasajeros"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNumber"
+        app:layout_constraintEnd_toStartOf="@+id/cajaModelosIDModeloBajas"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -144,13 +144,13 @@
         android:layout_marginTop="476dp"
         android:text="@string/txt_color_base"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNumber"
+        app:layout_constraintEnd_toStartOf="@+id/cajaModelosIDModeloBajas"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/cajaModelosIDModeloBajas"
         android:layout_width="278dp"
         android:layout_height="51dp"
         android:layout_marginTop="9dp"
@@ -163,7 +163,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView47" />
 
     <EditText
-        android:id="@+id/editTextNumber3"
+        android:id="@+id/cajaModelosPuertasBajas"
         android:layout_width="278dp"
         android:layout_height="51dp"
         android:layout_marginTop="264dp"
@@ -178,7 +178,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView47" />
 
     <EditText
-        android:id="@+id/editTextNumber4"
+        android:id="@+id/cajaModelosPasajerosBajas"
         android:layout_width="278dp"
         android:layout_height="51dp"
         android:layout_marginTop="372dp"
@@ -193,7 +193,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView47" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spinnerModelosAnioBajas"
         android:layout_width="274dp"
         android:layout_height="50dp"
         android:layout_marginStart="1dp"
@@ -204,10 +204,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView50"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+        app:layout_constraintTop_toBottomOf="@+id/cajaModelosNombreBajas" />
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/spinnerModelosCilindrosBajas"
         android:layout_width="274dp"
         android:layout_height="50dp"
         android:layout_marginStart="1dp"
@@ -218,10 +218,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView50"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+        app:layout_constraintTop_toBottomOf="@+id/cajaModelosNombreBajas" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/cajaModelosNombreBajas"
         android:layout_width="279dp"
         android:layout_height="52dp"
         android:layout_marginEnd="17dp"
@@ -231,10 +231,10 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView49"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/cajaModelosIDModeloBajas" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/cajaModelosFabricanteEliminar"
         android:layout_width="279dp"
         android:layout_height="52dp"
         android:layout_marginEnd="17dp"
@@ -245,10 +245,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView49"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerModelosAnioBajas" />
 
     <EditText
-        android:id="@+id/editTextText3"
+        android:id="@+id/cajaModelosColorBajas"
         android:layout_width="279dp"
         android:layout_height="52dp"
         android:layout_marginTop="260dp"
@@ -260,10 +260,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView49"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerModelosAnioBajas" />
 
     <EditText
-        android:id="@+id/editTextText4"
+        android:id="@+id/cajaModelosPaisBajas"
         android:layout_width="279dp"
         android:layout_height="52dp"
         android:layout_marginTop="312dp"
@@ -275,10 +275,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView49"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerModelosAnioBajas" />
 
     <EditText
-        android:id="@+id/editTextNumberDecimal"
+        android:id="@+id/cajaModelosPesoBajas"
         android:layout_width="276dp"
         android:layout_height="53dp"
         android:layout_marginStart="1dp"
@@ -290,10 +290,10 @@
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView54"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber3" />
+        app:layout_constraintTop_toBottomOf="@+id/cajaModelosPuertasBajas" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btnModeloEliminarBajas"
         android:layout_width="102dp"
         android:layout_height="54dp"
         android:layout_marginStart="25dp"
@@ -302,12 +302,12 @@
         android:backgroundTint="@color/crema_base"
         android:text="@string/txt_btn_eliminar"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toStartOf="@+id/button5"
+        app:layout_constraintEnd_toStartOf="@+id/btnModelosBuscarBajas"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView57" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btnModelosBuscarBajas"
         android:layout_width="102dp"
         android:layout_height="54dp"
         android:layout_marginStart="15dp"
@@ -316,12 +316,12 @@
         android:backgroundTint="@color/crema_base"
         android:text="@string/txt_btn_buscar"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toStartOf="@+id/button6"
-        app:layout_constraintStart_toEndOf="@+id/button4"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText4" />
+        app:layout_constraintEnd_toStartOf="@+id/btnModelosCancelarBajas"
+        app:layout_constraintStart_toEndOf="@+id/btnModeloEliminarBajas"
+        app:layout_constraintTop_toBottomOf="@+id/cajaModelosPaisBajas" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/btnModelosCancelarBajas"
         android:layout_width="108dp"
         android:layout_height="54dp"
         android:layout_marginStart="15dp"
@@ -331,6 +331,6 @@
         android:text="@string/txt_btn_cancelar"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button5"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText4" />
+        app:layout_constraintStart_toEndOf="@+id/btnModelosBuscarBajas"
+        app:layout_constraintTop_toBottomOf="@+id/cajaModelosPaisBajas" />
 </androidx.constraintlayout.widget.ConstraintLayout>

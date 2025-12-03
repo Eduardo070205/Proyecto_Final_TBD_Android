@@ -28,6 +28,7 @@
         <activity android:name=".ActivityConsultasVehiculos"></activity>
         <activity android:name=".ActivityAltasModelos"></activity>
         <activity android:name=".ActivityEliminarModelos"></activity>
+        <activity android:name=".ActivityModificarModelos"></activity>
 
     </application>
 
