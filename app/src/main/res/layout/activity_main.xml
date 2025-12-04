@@ -71,27 +71,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <EditText
-        android:id="@+id/cajaIniciarSesionConstraseña"
-        android:layout_width="337dp"
-        android:layout_height="67dp"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="116dp"
-        android:layout_marginEnd="45dp"
-        android:ems="10"
-        android:hint="Contraseña"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
     <Button
         android:id="@+id/btnIniciarSesion"
         android:layout_width="135dp"
         android:layout_height="79dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
         android:layout_marginEnd="30dp"
         android:backgroundTint="@color/crema_base"
         android:onClick="abrirActivity"
@@ -99,20 +83,33 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/btnIniciarSesionRestaurar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cajaIniciarSesionConstraseña" />
+        tools:layout_editor_absoluteY="614dp" />
 
     <Button
         android:id="@+id/btnIniciarSesionRestaurar"
         android:layout_width="135dp"
         android:layout_height="79dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
         android:layout_marginEnd="30dp"
         android:backgroundTint="@color/crema_base"
         android:text="@string/txt_btn_restaurar"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnIniciarSesion"
-        app:layout_constraintTop_toBottomOf="@+id/cajaIniciarSesionConstraseña" />
+        tools:layout_editor_absoluteY="614dp" />
+
+    <EditText
+        android:id="@+id/cajaInicioSesionContraseña"
+        android:layout_width="339dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="43dp"
+        android:ems="10"
+        android:hint="@string/txt_contraseña"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

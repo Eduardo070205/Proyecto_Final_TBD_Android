@@ -52,6 +52,10 @@ public class ActivityMenu extends Activity {
 
             i = new Intent(this, ActivityConsultasModelos.class);
 
+        }else if (v.getId() == R.id.btnMenuListaVehiculos){
+
+            i = new Intent(this, ActivityListaVehiculos.class);
+
         }
 
 

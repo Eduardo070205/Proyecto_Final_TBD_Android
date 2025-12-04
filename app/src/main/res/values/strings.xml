@@ -41,5 +41,11 @@
     <string name="txt_titulo_bajas_modelos">Eliminar Modelos</string>
     <string name="txt_titulo_actualizar_modelos">Actualizar Modelos</string>
     <string name="txt_titulo_consultar_modelos">Consultar Modelos</string>
+    <string name="txt_btn_ver_lista">Ver Lista</string>
+    <string name="txt_titulo_listado_vehiculos">Lista de Vehículos</string>
+    <string name="txt_titulo_listado_modelos">Lista de Modelos</string>
+    <string name="txt_btn_hacer_otra_busqueda">Hacer otra Consulta</string>
+    <string name="txt_btn_cerrar">Cerrar</string>
+
 
 </resources>

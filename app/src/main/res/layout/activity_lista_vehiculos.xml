@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView61"
+        android:layout_width="159dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="141dp"
+        android:text="@string/txt_titulo_listado_vehiculos"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView62"
+        android:layout_width="88dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="87dp"
+        android:layout_marginEnd="2dp"
+        android:text="@string/txt_id_vehiculo"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/cajaVehiculosIDVehiculoLista"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/cajaVehiculosIDVehiculoLista"
+        android:layout_width="287dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="@string/txt_id_vehiculo"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView62"
+        app:layout_constraintTop_toBottomOf="@+id/textView61" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerVehiculos"
+        android:layout_width="422dp"
+        android:layout_height="470dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView62" />
+
+    <Button
+        android:id="@+id/btnVehiculosCerrarLista"
+        android:layout_width="143dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="@color/crema_base"
+        android:text="@string/txt_btn_cerrar"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/btnVehiculosOtraCLista"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerVehiculos" />
+
+    <Button
+        android:id="@+id/btnVehiculosOtraCLista"
+        android:layout_width="143dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/crema_base"
+        android:text="@string/txt_btn_hacer_otra_busqueda"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnVehiculosCerrarLista"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerVehiculos" />
+</androidx.constraintlayout.widget.ConstraintLayout>
