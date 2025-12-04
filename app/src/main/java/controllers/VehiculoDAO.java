@@ -12,27 +12,19 @@ import entities.Vehiculo;
 @Dao
 public interface VehiculoDAO {
 
-    // -------------------------- ALTAS -----------------------------
-
+    // ALTAS
     @Insert
-    public void agregarVehiculo(Vehiculo vehiculo);
+    void agregarVehiculo(Vehiculo vehiculo);
 
-    // ------------------------- BAJAS ------------------------------
-
-
+    // BAJAS
     @Query("DELETE FROM vehiculo WHERE id_vehiculo=:id")
-    public int eliminarAlumnoPorNumControl(String id);
+    int eliminarVehiculoPorId(int id);
 
-    // ------------------------ MODIFICACIONES -----------------------
+    // MODIFICACIONES
+    @Query("UPDATE vehiculo SET numero_serie=:numSerie, id_modelo=:idModelo, fecha_fabricacion=:fechaFab, precio=:precio, kilometraje=:kilometraje, fecha_entrada=:fechaEntrada, tipo=:tipo, estado=:estado WHERE id_vehiculo=:idVehiculo")
+    int actualizarVehiculo(String numSerie, int idModelo, Date fechaFab, double precio, int kilometraje, Date fechaEntrada, String tipo, String estado, int idVehiculo);
 
-    @Query("UPDATE vehiculo SET numero_serie =:numserie, id_modelo =:idModelo, fecha_fabricacion =:fechaFab, precio =:precio, kilometraje =:kilometraje, fecha_entrada =:fechaEntrada, tipo =:tipo, estado =:estado WHERE id_vehiculo=:idVehiculo")
-    public int actualizarAlumnoPorNumControl(String numserie, int idModelo, Date fechaFab, double precio, int kilometraje, Date fechaEntrada, String tipo, String estado,String idVehiculo);
-
-    // -------------------------- CONSULTAS --------------------------
-
+    // CONSULTAS
     @Query("SELECT * FROM vehiculo")
-    public List<Vehiculo> mostrarTodos();
-
-
-
+    List<Vehiculo> mostrarTodos();
 }
