@@ -31,6 +31,8 @@
         <activity android:name=".ActivityModificarModelos"></activity>
         <activity android:name=".ActivityConsultasModelos"></activity>
         <activity android:name=".ActivityListaVehiculos"></activity>
+        <activity android:name=".ActivityListaModelos"></activity>
+
 
     </application>
 
