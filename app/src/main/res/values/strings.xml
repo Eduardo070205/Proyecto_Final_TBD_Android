@@ -40,5 +40,6 @@
     <string name="txt_pais_fabricacion">País Fabricación</string>
     <string name="txt_titulo_bajas_modelos">Eliminar Modelos</string>
     <string name="txt_titulo_actualizar_modelos">Actualizar Modelos</string>
+    <string name="txt_titulo_consultar_modelos">Consultar Modelos</string>
 
 </resources>

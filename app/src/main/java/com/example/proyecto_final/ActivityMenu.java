@@ -48,6 +48,10 @@ public class ActivityMenu extends Activity {
 
             i = new Intent(this, ActivityModificarModelos.class);
 
+        }else if (v.getId() == R.id.btnModelosConsultar){
+
+            i = new Intent(this, ActivityConsultasModelos.class);
+
         }
 
 

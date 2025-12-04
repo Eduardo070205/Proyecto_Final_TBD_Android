@@ -29,6 +29,7 @@
         <activity android:name=".ActivityAltasModelos"></activity>
         <activity android:name=".ActivityEliminarModelos"></activity>
         <activity android:name=".ActivityModificarModelos"></activity>
+        <activity android:name=".ActivityConsultasModelos"></activity>
 
     </application>
 

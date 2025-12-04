@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView60"
+        android:layout_width="224dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="119dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="120dp"
+        android:text="@string/txt_titulo_consultar_modelos"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="290dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnModelosBuscarBuscar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView60">
+
+
+        <RadioButton
+            android:id="@+id/radioModelosIDModelo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="deshabilitarRadios"
+            android:text="@string/txt_id_modelo"
+            tools:layout_editor_absoluteX="7dp"
+            tools:layout_editor_absoluteY="79dp" />
+
+        <RadioButton
+            android:id="@+id/radioModelosNombre"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:onClick="deshabilitarRadios"
+            android:text="@string/txt_nombre_modelo"
+            tools:layout_editor_absoluteX="7dp"
+            tools:layout_editor_absoluteY="127dp" />
+
+        <RadioButton
+            android:id="@+id/radioModelosAnio"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:onClick="deshabilitarRadios"
+            android:text="@string/txt_anio_modelo"
+            tools:layout_editor_absoluteX="7dp"
+            tools:layout_editor_absoluteY="175dp" />
+
+        <RadioButton
+            android:id="@+id/radioModelosFabricante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="deshabilitarRadios"
+            android:text="@string/txt_fabricante"
+            tools:layout_editor_absoluteX="7dp"
+            tools:layout_editor_absoluteY="223dp" />
+
+        <RadioButton
+            android:id="@+id/radioModelosCilindros"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:onClick="deshabilitarRadios"
+            android:text="@string/txt_numero_cilindros"
+            tools:layout_editor_absoluteX="7dp"
+            tools:layout_editor_absoluteY="271dp" />
+
+        <RadioButton
+            android:id="@+id/radioModelosPuertas"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:onClick="deshabilitarRadios"
+            android:text="@string/txt_numero_puertas"
+            tools:layout_editor_absoluteX="7dp"
+            tools:layout_editor_absoluteY="319dp" />
+
+        <RadioButton
+            android:id="@+id/radioModelosPasajeros"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:onClick="deshabilitarRadios"
+            android:text="@string/txt_capacidad_pasajeros"
+            tools:layout_editor_absoluteX="7dp"
+            tools:layout_editor_absoluteY="367dp" />
+
+        <RadioButton
+            android:id="@+id/radioModelosPais"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:onClick="deshabilitarRadios"
+            android:text="@string/txt_pais_fabricacion"
+            tools:layout_editor_absoluteX="7dp"
+            tools:layout_editor_absoluteY="415dp" />
+
+        <RadioButton
+            android:id="@+id/radioModelosTodos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:onClick="deshabilitarRadios"
+            android:text="@string/txt_rdio_todos"
+            tools:layout_editor_absoluteX="7dp"
+            tools:layout_editor_absoluteY="463dp" />
+
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/cajaModelosIDModeloBuscar"
+        android:layout_width="276dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="12dp"
+        android:ems="10"
+        android:hint="@string/txt_id_modelo"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/radioGroup2"
+        app:layout_constraintTop_toBottomOf="@+id/textView60" />
+
+    <EditText
+        android:id="@+id/cajaModelosNombreBuscar"
+        android:layout_width="273dp"
+        android:layout_height="55dp"
+        android:ems="10"
+        android:hint="@string/txt_nombre_modelo"
+        android:inputType="text"
+        app:layout_constraintStart_toEndOf="@+id/radioGroup2"
+        app:layout_constraintTop_toBottomOf="@+id/cajaModelosIDModeloBuscar" />
+
+    <EditText
+        android:id="@+id/cajaModelosPaisBuscar"
+        android:layout_width="273dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="1dp"
+        android:ems="10"
+        android:hint="@string/txt_pais_fabricacion"
+        android:inputType="text"
+        app:layout_constraintStart_toEndOf="@+id/radioGroup2"
+        app:layout_constraintTop_toBottomOf="@+id/cajaModelosPasajerosBuscar" />
+
+    <Spinner
+        android:id="@+id/spinnerModelosAnioBuscar"
+        android:layout_width="276dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="3dp"
+        app:layout_constraintStart_toEndOf="@+id/radioGroup2"
+        app:layout_constraintTop_toBottomOf="@+id/cajaModelosNombreBuscar" />
+
+    <Spinner
+        android:id="@+id/spinnerModelosCilindrosBuscar"
+        android:layout_width="276dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="1dp"
+        app:layout_constraintStart_toEndOf="@+id/radioGroup2"
+        app:layout_constraintTop_toBottomOf="@+id/cajaModelosFabricanteBuscar" />
+
+    <EditText
+        android:id="@+id/cajaModelosFabricanteBuscar"
+        android:layout_width="276dp"
+        android:layout_height="53dp"
+        android:layout_marginEnd="13dp"
+        android:ems="10"
+        android:hint="@string/txt_fabricante"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/radioGroup2"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerModelosAnioBuscar" />
+
+    <EditText
+        android:id="@+id/cajaModelosPuertasBuscar"
+        android:layout_width="276dp"
+        android:layout_height="58dp"
+        android:layout_marginEnd="13dp"
+        android:ems="10"
+        android:hint="@string/txt_numero_puertas"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/radioGroup2"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerModelosCilindrosBuscar" />
+
+    <EditText
+        android:id="@+id/cajaModelosPasajerosBuscar"
+        android:layout_width="276dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="13dp"
+        android:ems="10"
+        android:hint="@string/txt_capacidad_pasajeros"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/radioGroup2"
+        app:layout_constraintTop_toBottomOf="@+id/cajaModelosPuertasBuscar" />
+
+    <Button
+        android:id="@+id/btnModelosBuscarBuscar"
+        android:layout_width="124dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="113dp"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="@color/crema_base"
+        android:text="@string/txt_btn_buscar"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/btnModelosCancelarBuscar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cajaModelosPaisBuscar" />
+
+    <Button
+        android:id="@+id/btnModelosCancelarBuscar"
+        android:layout_width="124dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="113dp"
+        android:layout_marginEnd="26dp"
+        android:backgroundTint="@color/crema_base"
+        android:text="@string/txt_btn_cancelar"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnModelosBuscarBuscar"
+        app:layout_constraintTop_toBottomOf="@+id/cajaModelosPaisBuscar" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
