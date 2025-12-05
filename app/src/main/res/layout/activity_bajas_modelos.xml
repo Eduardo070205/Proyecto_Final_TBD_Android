@@ -301,6 +301,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="15dp"
         android:backgroundTint="@color/crema_base"
+        android:onClick="eliminarModelo"
         android:text="@string/txt_btn_eliminar"
         android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/btnModelosBuscarBajas"

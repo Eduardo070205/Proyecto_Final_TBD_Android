@@ -31,4 +31,34 @@ public interface ModeloDAO {
     @Query("SELECT * FROM modelo")
     public List<Modelo> mostrarTodos();
 
+    @Query("SELECT * FROM modelo WHERE id_modelo=:idModelo")
+    public List<Modelo> mostrarPorId(int idModelo);
+
+    @Query("SELECT * FROM modelo WHERE nombre_modelo LIKE :nombre")
+    List<Modelo> buscarPorNombre(String nombre);
+
+    @Query("SELECT * FROM modelo WHERE anio_modelo = :anio")
+    List<Modelo> buscarPorAnio(int anio);
+
+    @Query("SELECT * FROM modelo WHERE fabricante LIKE :fab")
+    List<Modelo> buscarPorFabricante(String fab);
+
+    @Query("SELECT * FROM modelo WHERE numero_cilindros = :cilindros")
+    List<Modelo> buscarPorCilindros(int cilindros);
+
+    @Query("SELECT * FROM modelo WHERE numero_puertas = :puertas")
+    List<Modelo> buscarPorPuertas(int puertas);
+
+    @Query("SELECT * FROM modelo WHERE peso = :peso")
+    List<Modelo> buscarPorPeso(double peso);
+
+    @Query("SELECT * FROM modelo WHERE capacidad_pasajeros = :pasajeros")
+    List<Modelo> buscarPorPasajeros(int pasajeros);
+
+    @Query("SELECT * FROM modelo WHERE color_base LIKE :color")
+    List<Modelo> buscarPorColor(String color);
+
+    @Query("SELECT * FROM modelo WHERE pais_fabricacion LIKE :pais")
+    List<Modelo> buscarPorPais(String pais);
+    
 }

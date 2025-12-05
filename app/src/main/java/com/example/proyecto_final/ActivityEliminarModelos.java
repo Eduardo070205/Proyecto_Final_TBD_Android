@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -58,7 +59,34 @@ public class ActivityEliminarModelos extends Activity {
 
     public void eliminarModelo(View v){
 
-        if(v.getId() == R.id.btnmodelos)
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                int numFilas = bd.modeloDAO().eliminarModeloPirId(Integer.parseInt(cajaid.getText().toString()));
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
+
+                        if (numFilas == 1){
+
+                            Toast.makeText(getBaseContext(), "Eliminación correcta", Toast.LENGTH_LONG).show();
+
+                        }else{
+
+                            Toast.makeText(getBaseContext(), "Eliminación Incorrecta", Toast.LENGTH_LONG).show();
+
+                        }
+
+
+                    }
+                });
+
+            }
+        }).start();
+
 
     }
 
