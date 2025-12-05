@@ -14,12 +14,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import conexion.Autos_Amistosos_BD;
+import entities.Modelo;
 
 public class ActivityEliminarModelos extends Activity {
 
     EditText cajaid, cajaNombre, cajaFabricante, cajaPuertas, cajaPeso, cajaPasajeros, cajaColor, cajaPais;
 
     Spinner spinnerAnio, spinnerCilindros;
+
+    ArrayList<Modelo> lista = null;
 
     Autos_Amistosos_BD bd;
 
@@ -90,4 +93,52 @@ public class ActivityEliminarModelos extends Activity {
 
     }
 
+    public void buscarModelo(View v) {
+
+        String valorBuscado;
+        ArrayAdapter adapter;
+        int posicion;
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                lista = (ArrayList<Modelo>) bd.modeloDAO().mostrarPorId(Integer.parseInt(cajaid.getText().toString()));
+
+                runOnUiThread(() -> {
+
+                    if (lista == null || lista.isEmpty()) {
+                        Toast.makeText(getBaseContext(), "No se encontró el modelo", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+
+                    Modelo m = lista.get(0);
+
+                    cajaNombre.setText(m.getNombre_modelo());
+                    cajaFabricante.setText(m.getFabricante());
+                    cajaPuertas.setText(String.valueOf(m.getNumero_puertas()));
+                    cajaPeso.setText(String.valueOf(m.getPeso()));
+                    cajaPasajeros.setText(String.valueOf(m.getCapacidad_pasajeros()));
+                    cajaColor.setText(m.getColor_base());
+                    cajaPais.setText(m.getPais_fabricacion());
+
+
+                    String valorAnio = String.valueOf(m.getAnio_modelo());
+                    ArrayAdapter adapterAnio = (ArrayAdapter) spinnerAnio.getAdapter();
+                    int posAnio = adapterAnio.getPosition(valorAnio);
+                    spinnerAnio.setSelection(posAnio);
+
+                    
+                    String valorCil = String.valueOf(m.getNumero_cilindros());
+                    ArrayAdapter adapterCil = (ArrayAdapter) spinnerCilindros.getAdapter();
+                    int posCil = adapterCil.getPosition(valorCil);
+                    spinnerCilindros.setSelection(posCil);
+
+                });
+
+            }
+        }).start();
+
+
+    }
 }

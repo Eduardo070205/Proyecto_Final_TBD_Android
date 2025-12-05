@@ -11,7 +11,9 @@ import entities.Modelo;
 @Dao
 public interface ModeloDAO {
 
-    // ============================== ALTAS =====================
+
+
+    // ============================== ALTAS =========================
 
     @Insert
     public void agregarModelo(Modelo modelo);
@@ -60,5 +62,5 @@ public interface ModeloDAO {
 
     @Query("SELECT * FROM modelo WHERE pais_fabricacion LIKE :pais")
     List<Modelo> buscarPorPais(String pais);
-    
+
 }
