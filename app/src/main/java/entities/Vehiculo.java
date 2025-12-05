@@ -4,12 +4,25 @@ package entities;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
 import java.util.Date;
 
-@Entity
+@Entity(
+
+        tableName = "vehiculo",
+        foreignKeys = @ForeignKey(
+                entity = Modelo.class,
+                parentColumns = "id_modelo",
+                childColumns = "id_modelo_fk",
+                onDelete = ForeignKey.CASCADE
+        )
+
+
+)
 public class Vehiculo {
+
 
 
     @PrimaryKey
@@ -21,12 +34,12 @@ public class Vehiculo {
     public String numero_serie;
 
     @NonNull
-    @ColumnInfo(name = "id_modelo")
-    public int id_modelo;
+    @ColumnInfo(name = "id_modelo_fk")
+    public int id_modelo_fk;
 
     @NonNull
     @ColumnInfo(name = "fecha_fabricacion")
-    public Date fecha_fabricacion;
+    public String fecha_fabricacion;
 
     @NonNull
     @ColumnInfo(name = "precio")
@@ -38,7 +51,7 @@ public class Vehiculo {
 
     @NonNull
     @ColumnInfo(name = "fecha_entrada")
-    public Date fehca_entrada;
+    public String fehca_entrada;
 
     @NonNull
     @ColumnInfo(name = "tipo")

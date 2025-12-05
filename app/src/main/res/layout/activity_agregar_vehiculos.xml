@@ -255,6 +255,7 @@
         android:layout_marginTop="49dp"
         android:layout_marginEnd="8dp"
         android:backgroundTint="@color/crema_base"
+        android:onClick="agregarVehiculo"
         android:text="@string/txt_btn_agregar"
         android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/btnVehiculosRestaurarAgregar"

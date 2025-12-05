@@ -1,6 +1,10 @@
 package com.example.proyecto_final;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +15,10 @@ import com.google.android.material.textfield.TextInputEditText;
 public class ActivityAltasVehiculos extends AppCompatActivity {
 
     TextInputEditText txtFecha;
+
+    EditText cajaIdV, cajaNumSerie, cajaPrecio, cajaKilometraje;
+
+    Spinner spinnerIdM, spinnerTipo, spinnerEstado;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,4 +40,15 @@ public class ActivityAltasVehiculos extends AppCompatActivity {
             datePicker.show(getSupportFragmentManager(), "datePicker");
         });
     }
+
+    public void agregarVehiculo(View v){
+
+        if(v.getId() == R.id.btnVehiculosAgregarAgregar){
+
+            Toast.makeText(this, txtFecha.getText(), Toast.LENGTH_SHORT).show();
+
+        }
+
+    }
+
 }
