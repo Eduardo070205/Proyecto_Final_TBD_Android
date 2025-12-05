@@ -128,7 +128,7 @@ public class ActivityEliminarModelos extends Activity {
                     int posAnio = adapterAnio.getPosition(valorAnio);
                     spinnerAnio.setSelection(posAnio);
 
-                    
+
                     String valorCil = String.valueOf(m.getNumero_cilindros());
                     ArrayAdapter adapterCil = (ArrayAdapter) spinnerCilindros.getAdapter();
                     int posCil = adapterCil.getPosition(valorCil);

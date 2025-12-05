@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/colorModelosColorModificar"
+        android:id="@+id/cajaModelosColorModificar"
         android:layout_width="273dp"
         android:layout_height="56dp"
         android:layout_marginStart="6dp"
@@ -29,7 +29,7 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView79"
-        app:layout_constraintTop_toBottomOf="@+id/colorModelosColorModificar" />
+        app:layout_constraintTop_toBottomOf="@+id/cajaModelosColorModificar" />
 
     <TextView
         android:id="@+id/textView77"
@@ -229,6 +229,7 @@
         android:layout_height="54dp"
         android:layout_marginStart="2dp"
         android:layout_marginEnd="23dp"
+        android:entries="@array/lista_cilindros"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView71"
         app:layout_constraintTop_toBottomOf="@+id/cajaModelosFabricanteModificar" />
@@ -279,6 +280,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="13dp"
         android:backgroundTint="@color/crema_base"
+        android:onClick="actualizarModelo"
         android:text="@string/txt_btn_actualizar"
         android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/btnModelosBuscarModificar"
@@ -293,6 +295,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
         android:backgroundTint="@color/crema_base"
+        android:onClick="cargarDatos"
         android:text="@string/txt_btn_buscar"
         android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/btnModelosCancelarModificar"
