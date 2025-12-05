@@ -23,8 +23,6 @@ import java.util.Date;
 )
 public class Vehiculo {
 
-
-
     @PrimaryKey
     @NonNull
     public String id_vehiculo;
@@ -62,4 +60,108 @@ public class Vehiculo {
     public String estado;
 
 
+    public Vehiculo(@NonNull String estado, @NonNull String tipo, @NonNull String fehca_entrada, int kilometraje, double precio, @NonNull String fecha_fabricacion, int id_modelo_fk, @NonNull String numero_serie, @NonNull String id_vehiculo) {
+        this.estado = estado;
+        this.tipo = tipo;
+        this.fehca_entrada = fehca_entrada;
+        this.kilometraje = kilometraje;
+        this.precio = precio;
+        this.fecha_fabricacion = fecha_fabricacion;
+        this.id_modelo_fk = id_modelo_fk;
+        this.numero_serie = numero_serie;
+        this.id_vehiculo = id_vehiculo;
+    }
+
+    @NonNull
+    public String getId_vehiculo() {
+        return id_vehiculo;
+    }
+
+    public void setId_vehiculo(@NonNull String id_vehiculo) {
+        this.id_vehiculo = id_vehiculo;
+    }
+
+    @NonNull
+    public String getNumero_serie() {
+        return numero_serie;
+    }
+
+    public void setNumero_serie(@NonNull String numero_serie) {
+        this.numero_serie = numero_serie;
+    }
+
+    public int getId_modelo_fk() {
+        return id_modelo_fk;
+    }
+
+    public void setId_modelo_fk(int id_modelo_fk) {
+        this.id_modelo_fk = id_modelo_fk;
+    }
+
+    @NonNull
+    public String getFecha_fabricacion() {
+        return fecha_fabricacion;
+    }
+
+    public void setFecha_fabricacion(@NonNull String fecha_fabricacion) {
+        this.fecha_fabricacion = fecha_fabricacion;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public int getKilometraje() {
+        return kilometraje;
+    }
+
+    public void setKilometraje(int kilometraje) {
+        this.kilometraje = kilometraje;
+    }
+
+    @NonNull
+    public String getFehca_entrada() {
+        return fehca_entrada;
+    }
+
+    public void setFehca_entrada(@NonNull String fehca_entrada) {
+        this.fehca_entrada = fehca_entrada;
+    }
+
+    @NonNull
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(@NonNull String tipo) {
+        this.tipo = tipo;
+    }
+
+    @NonNull
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(@NonNull String estado) {
+        this.estado = estado;
+    }
+
+    @Override
+    public String toString() {
+        return "Vehiculo{" +
+                "id_vehiculo='" + id_vehiculo + '\'' +
+                ", numero_serie='" + numero_serie + '\'' +
+                ", id_modelo_fk=" + id_modelo_fk +
+                ", fecha_fabricacion='" + fecha_fabricacion + '\'' +
+                ", precio=" + precio +
+                ", kilometraje=" + kilometraje +
+                ", fehca_entrada='" + fehca_entrada + '\'' +
+                ", tipo='" + tipo + '\'' +
+                ", estado='" + estado + '\'' +
+                '}';
+    }
 }

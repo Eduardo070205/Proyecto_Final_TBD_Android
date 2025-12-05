@@ -48,4 +48,14 @@
     <string name="txt_btn_cerrar">Cerrar</string>
 
 
+    <string-array name="lista_cilindros">
+        <item>2</item>
+        <item>4</item>
+        <item>6</item>
+        <item>8</item>
+        <item>10</item>
+        <item>12</item>
+    </string-array>
+
+
 </resources>

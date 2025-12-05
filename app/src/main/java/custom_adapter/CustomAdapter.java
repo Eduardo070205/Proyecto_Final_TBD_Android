@@ -12,11 +12,12 @@ import com.example.proyecto_final.R;
 
 import java.util.ArrayList;
 
+import entities.Modelo;
 import entities.Vehiculo;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder>{
 
-    private ArrayList<Vehiculo> localDataSet;
+    private ArrayList localDataSet;
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
@@ -34,7 +35,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
     }
 
-    public CustomAdapter(ArrayList<Vehiculo> dataset){
+    public CustomAdapter(ArrayList dataset){
 
         localDataSet = dataset;
 
@@ -59,4 +60,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     public int getItemCount() {
         return localDataSet.size();
     }
+
+
+
+
 }

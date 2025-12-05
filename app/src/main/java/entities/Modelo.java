@@ -50,10 +50,10 @@ public class Modelo {
     @ColumnInfo(name = "pais_fabricacion")
     public String pais_fabricacion;
 
-    public Modelo(@NonNull int id_modelo, @NonNull String nombre_modelo, int anio_modelo, int numero_cilindros, int numero_puertas, double peso, int capacidad_pasajeros, @NonNull String color_base, @NonNull String pais_fabricacion) {
-        this.id_modelo = id_modelo;
+    public Modelo(@NonNull String nombre_modelo, int anio_modelo, @NonNull String fabricante, int numero_cilindros, int numero_puertas, double peso, int capacidad_pasajeros, @NonNull String color_base, @NonNull String pais_fabricacion) {
         this.nombre_modelo = nombre_modelo;
         this.anio_modelo = anio_modelo;
+        this.fabricante = fabricante;
         this.numero_cilindros = numero_cilindros;
         this.numero_puertas = numero_puertas;
         this.peso = peso;
@@ -62,12 +62,11 @@ public class Modelo {
         this.pais_fabricacion = pais_fabricacion;
     }
 
-    @NonNull
     public int getId_modelo() {
         return id_modelo;
     }
 
-    public void setId_modelo(@NonNull int id_modelo) {
+    public void setId_modelo(int id_modelo) {
         this.id_modelo = id_modelo;
     }
 
@@ -86,6 +85,15 @@ public class Modelo {
 
     public void setAnio_modelo(int anio_modelo) {
         this.anio_modelo = anio_modelo;
+    }
+
+    @NonNull
+    public String getFabricante() {
+        return fabricante;
+    }
+
+    public void setFabricante(@NonNull String fabricante) {
+        this.fabricante = fabricante;
     }
 
     public int getNumero_cilindros() {
@@ -138,12 +146,14 @@ public class Modelo {
         this.pais_fabricacion = pais_fabricacion;
     }
 
+
     @Override
     public String toString() {
         return "Modelo{" +
-                "id_modelo='" + id_modelo + '\'' +
+                "id_modelo=" + id_modelo +
                 ", nombre_modelo='" + nombre_modelo + '\'' +
                 ", anio_modelo=" + anio_modelo +
+                ", fabricante='" + fabricante + '\'' +
                 ", numero_cilindros=" + numero_cilindros +
                 ", numero_puertas=" + numero_puertas +
                 ", peso=" + peso +
