@@ -31,7 +31,7 @@ public class ActivityAltasVehiculos extends AppCompatActivity {
 
     Spinner spinnerIdM, spinnerTipo, spinnerEstado;
 
-    List<Modelo> listaIdModelos;
+
 
     Autos_Amistosos_BD bd;
 
