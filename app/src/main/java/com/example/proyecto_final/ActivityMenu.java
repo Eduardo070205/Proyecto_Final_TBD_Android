@@ -60,6 +60,9 @@ public class ActivityMenu extends Activity {
 
             i = new Intent(this, ActivityListaModelos.class);
 
+            i.putExtra("filtro", "todos");
+            i.putExtra("valor", "");
+
         }
 
 

@@ -6,8 +6,10 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity
-public class Modelo {
+public class Modelo{
 
     @PrimaryKey(autoGenerate = true)
     @NonNull
