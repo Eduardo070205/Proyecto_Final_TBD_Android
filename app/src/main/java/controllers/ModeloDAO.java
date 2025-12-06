@@ -63,4 +63,7 @@ public interface ModeloDAO {
     @Query("SELECT * FROM modelo WHERE pais_fabricacion LIKE :pais")
     List<Modelo> buscarPorPais(String pais);
 
+    @Query("SELECT id_modelo FROM modelo ")
+    List<Integer> obtenerModelos();
+
 }

@@ -47,7 +47,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView61" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerModelos"
+        android:id="@+id/recyclerVehiculos"
         android:layout_width="422dp"
         android:layout_height="470dp"
         android:layout_marginTop="1dp"
@@ -68,7 +68,7 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/btnModelosOtraCLista"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerModelos" />
+        app:layout_constraintTop_toBottomOf="@+id/recyclerVehiculos" />
 
     <Button
         android:id="@+id/btnModelosOtraCLista"
@@ -82,5 +82,5 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnModelosCerrarLista"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerModelos" />
+        app:layout_constraintTop_toBottomOf="@+id/recyclerVehiculos" />
 </androidx.constraintlayout.widget.ConstraintLayout>

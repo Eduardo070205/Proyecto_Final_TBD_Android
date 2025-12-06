@@ -60,16 +60,16 @@ public class Vehiculo {
     public String estado;
 
 
-    public Vehiculo(@NonNull String estado, @NonNull String tipo, @NonNull String fehca_entrada, int kilometraje, double precio, @NonNull String fecha_fabricacion, int id_modelo_fk, @NonNull String numero_serie, @NonNull String id_vehiculo) {
-        this.estado = estado;
-        this.tipo = tipo;
-        this.fehca_entrada = fehca_entrada;
-        this.kilometraje = kilometraje;
-        this.precio = precio;
-        this.fecha_fabricacion = fecha_fabricacion;
-        this.id_modelo_fk = id_modelo_fk;
-        this.numero_serie = numero_serie;
+    public Vehiculo(@NonNull String id_vehiculo, @NonNull String numero_serie, int id_modelo_fk, @NonNull String fecha_fabricacion, double precio, int kilometraje, @NonNull String fehca_entrada, @NonNull String tipo, @NonNull String estado) {
         this.id_vehiculo = id_vehiculo;
+        this.numero_serie = numero_serie;
+        this.id_modelo_fk = id_modelo_fk;
+        this.fecha_fabricacion = fecha_fabricacion;
+        this.precio = precio;
+        this.kilometraje = kilometraje;
+        this.fehca_entrada = fehca_entrada;
+        this.tipo = tipo;
+        this.estado = estado;
     }
 
     @NonNull

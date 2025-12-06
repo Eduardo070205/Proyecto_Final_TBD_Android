@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import conexion.Autos_Amistosos_BD;
 import custom_adapter.CustomAdapter;
@@ -77,6 +79,19 @@ public class ActivityConsultasModelos extends Activity {
         cajaPais.setEnabled(false);
         spinnerAnio.setEnabled(false);
         spinnerCilindros.setEnabled(false);
+
+
+        List<String> listaAnios = new ArrayList<>();
+
+        for (int i = 2025; i >= 1900; i--) {
+            listaAnios.add(String.valueOf(i));
+        }
+
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, listaAnios);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerAnio.setAdapter(adapter);
 
 
     }

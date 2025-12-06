@@ -3,7 +3,6 @@ package com.example.proyecto_final;
 import android.app.Activity;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,7 +11,6 @@ import java.util.ArrayList;
 import conexion.Autos_Amistosos_BD;
 import custom_adapter.CustomAdapter;
 import entities.Modelo;
-import entities.Vehiculo;
 
 public class ActivityListaModelos extends Activity {
 
@@ -35,7 +33,7 @@ public class ActivityListaModelos extends Activity {
 
         bd = Autos_Amistosos_BD.getAppDatabase(this);
 
-        recyclerView = findViewById(R.id.recyclerModelos);
+        recyclerView = findViewById(R.id.recyclerVehiculos);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

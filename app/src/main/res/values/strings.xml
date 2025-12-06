@@ -57,5 +57,15 @@
         <item>12</item>
     </string-array>
 
+    <string-array name="lista_tipos">
+        <item>Nuevo</item>
+        <item>Usado</item>
+    </string-array>
+
+    <string-array name="lista_estado">
+        <item>Disponible</item>
+        <item>Vendido</item>
+    </string-array>
+
 
 </resources>
