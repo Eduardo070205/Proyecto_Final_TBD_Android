@@ -22,7 +22,7 @@ public interface VehiculoDAO {
 
     // MODIFICACIONES
     @Query("UPDATE vehiculo SET numero_serie=:numSerie, id_modelo_fk=:idModelo, fecha_fabricacion=:fechaFab, precio=:precio, kilometraje=:kilometraje, fecha_entrada=:fechaEntrada, tipo=:tipo, estado=:estado WHERE id_vehiculo=:idVehiculo")
-    int actualizarVehiculo(String numSerie, int idModelo, String fechaFab, double precio, int kilometraje, String fechaEntrada, String tipo, String estado, int idVehiculo);
+    int actualizarVehiculo(String idVehiculo, String numSerie, int idModelo, String fechaFab, double precio, int kilometraje, String fechaEntrada, String tipo, String estado);
 
     // CONSULTAS
     @Query("SELECT * FROM vehiculo")
