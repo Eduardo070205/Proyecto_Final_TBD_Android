@@ -160,6 +160,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="224dp"
         android:layout_marginEnd="24dp"
+        android:entries="@array/lista_estado"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/radioGroup"
         app:layout_constraintTop_toBottomOf="@+id/cajaVehiculosNumSerieBuscar" />
@@ -171,6 +172,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="168dp"
         android:layout_marginEnd="24dp"
+        android:entries="@array/lista_tipos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/radioGroup"
         app:layout_constraintTop_toBottomOf="@+id/cajaVehiculosNumSerieBuscar" />
@@ -210,6 +212,7 @@
         android:layout_marginTop="92dp"
         android:layout_marginEnd="72dp"
         android:backgroundTint="@color/crema_base"
+        android:onClick="buscarVehiculos"
         android:text="@string/txt_btn_buscar"
         android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/btnVehiculosCancelarBuscar"

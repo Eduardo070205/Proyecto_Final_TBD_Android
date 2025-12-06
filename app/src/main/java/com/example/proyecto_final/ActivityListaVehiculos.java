@@ -30,32 +30,72 @@ public class ActivityListaVehiculos extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_vehiculos);
 
-        recyclerView = findViewById(R.id.recyclerVehiculos);
-
-        recyclerView.setHasFixedSize(true);
-
-        layoutManager = new LinearLayoutManager(this);
-
-        recyclerView.setLayoutManager(layoutManager);
-
         bd = Autos_Amistosos_BD.getAppDatabase(this);
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
+        recyclerView = findViewById(R.id.recyclerVehiculos);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        String tipo = getIntent().getStringExtra("tipo");
+        String valor = getIntent().getStringExtra("valor");
+
+        new Thread(() -> {
+
+            if (tipo == null) {
                 datos = (ArrayList<Vehiculo>) bd.vehiculoDAO().mostrarTodos();
+            } else {
 
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
+                switch (tipo) {
 
-                        adapter = new CustomAdapter(datos);
-                        recyclerView.setAdapter(adapter);
+                    case "idVehiculo":
+                        datos = (ArrayList<Vehiculo>)
+                                bd.vehiculoDAO().buscarPorIdVehiculo(valor);
+                        break;
 
-                    }
-                });
+                    case "numeroSerie":
+                        datos = (ArrayList<Vehiculo>)
+                                bd.vehiculoDAO().buscarPorNumeroSerie(valor);
+                        break;
 
+                    case "idModelo":
+                        datos = (ArrayList<Vehiculo>)
+                                bd.vehiculoDAO().buscarPorIdModelo(Integer.parseInt(valor));
+                        break;
+
+                    case "precio":
+                        datos = (ArrayList<Vehiculo>)
+                                bd.vehiculoDAO().buscarPorPrecio(Double.parseDouble(valor));
+                        break;
+
+                    case "kilometraje":
+                        datos = (ArrayList<Vehiculo>)
+                                bd.vehiculoDAO().buscarPorKilometraje(Integer.parseInt(valor));
+                        break;
+
+                    case "tipo":
+                        datos = (ArrayList<Vehiculo>)
+                                bd.vehiculoDAO().buscarPorTipo(valor);
+                        break;
+
+                    case "estado":
+                        datos = (ArrayList<Vehiculo>)
+                                bd.vehiculoDAO().buscarPorEstado(valor);
+                        break;
+
+                    case "todos":
+
+                        datos = (ArrayList<Vehiculo>)
+                                bd.vehiculoDAO().mostrarTodos();
+                        break;
+
+                }
             }
+
+            runOnUiThread(() -> {
+                adapter = new CustomAdapter(datos);
+                recyclerView.setAdapter(adapter);
+            });
+
         }).start();
 
     }
