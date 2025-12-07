@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import adapters.ModeloAdapter;
 import conexion.Autos_Amistosos_BD;
 import adapters.CustomAdapter;
 import entities.Modelo;
@@ -97,7 +98,7 @@ public class ActivityListaModelos extends Activity {
             }
 
             runOnUiThread(() -> {
-                adapter = new CustomAdapter(datos);
+                adapter = new ModeloAdapter(datos);
                 recyclerView.setAdapter(adapter);
             });
 
