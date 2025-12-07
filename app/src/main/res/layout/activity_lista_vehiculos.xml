@@ -28,12 +28,12 @@
         android:layout_marginEnd="2dp"
         android:text="@string/txt_id_vehiculo"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/cajaModelosNombreLista"
+        app:layout_constraintEnd_toStartOf="@+id/cajaVehiculosIdLista"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/cajaModelosNombreLista"
+        android:id="@+id/cajaVehiculosIdLista"
         android:layout_width="287dp"
         android:layout_height="56dp"
         android:layout_marginStart="2dp"
@@ -64,6 +64,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="30dp"
         android:backgroundTint="@color/crema_base"
+        android:onClick="regresarMenu"
         android:text="@string/txt_btn_cerrar"
         android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/btnModelosOtraCLista"
@@ -78,6 +79,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:backgroundTint="@color/crema_base"
+        android:onClick="otraConsulta"
         android:text="@string/txt_btn_hacer_otra_busqueda"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"

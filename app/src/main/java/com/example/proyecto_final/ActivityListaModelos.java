@@ -1,16 +1,23 @@
 package com.example.proyecto_final;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.View;
+import android.widget.EditText;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import Recursos.Restablecer;
 import adapters.ModeloAdapter;
 import conexion.Autos_Amistosos_BD;
-import adapters.CustomAdapter;
 import entities.Modelo;
 
 public class ActivityListaModelos extends Activity {
@@ -21,7 +28,9 @@ public class ActivityListaModelos extends Activity {
 
     private RecyclerView.LayoutManager layoutManager;
 
+    EditText cajaFiltro;
 
+    Restablecer restablecer = new Restablecer();
 
     ArrayList<Modelo> datos = null;
 
@@ -43,6 +52,48 @@ public class ActivityListaModelos extends Activity {
         String valor = getIntent().getStringExtra("valor");
 
         cargarDatos(filtro, valor);
+
+        cajaFiltro = findViewById(R.id.cajaVehiculosIdLista);
+        cajaFiltro.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void afterTextChanged(Editable s) {
+
+
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        datos = (ArrayList<Modelo>) bd.modeloDAO().buscarPorNombre(cajaFiltro.getText().toString().toUpperCase());
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+
+                                adapter = new ModeloAdapter(datos);
+                                recyclerView.setAdapter(adapter);
+
+                            }
+                        });
+
+                    }
+                }).start();
+
+            }
+        });
+
+        restablecer.restablecer(cajaFiltro);
+
     }
 
     private void cargarDatos(String filtro, String valor) {
@@ -103,6 +154,38 @@ public class ActivityListaModelos extends Activity {
             });
 
         }).start();
+    }
+
+    public void regresarMenu(View v){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(ActivityListaModelos.this);
+        builder.setTitle("Confirmación");
+        builder.setMessage("¿Estás seguro de Cerrar?");
+
+        builder.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                Intent i = new Intent(ActivityListaModelos.this, ActivityMenu.class);
+
+                startActivity(i);
+
+            }
+        });
+
+        builder.setNegativeButton("No", null);
+
+        builder.show();
+
+
+    }
+
+    public void otraConsulta(View v){
+
+        Intent i = new Intent(ActivityListaModelos.this, ActivityConsultasModelos.class);
+
+        startActivity(i);
+
     }
 
 }

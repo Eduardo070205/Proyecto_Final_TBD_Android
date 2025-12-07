@@ -16,7 +16,7 @@ public interface ModeloDAO {
     // ============================== ALTAS =========================
 
     @Insert
-    public void agregarModelo(Modelo modelo);
+    public long agregarModelo(Modelo modelo);
 
     // ============================== BAJAS ======================
 
@@ -36,7 +36,7 @@ public interface ModeloDAO {
     @Query("SELECT * FROM modelo WHERE id_modelo=:idModelo")
     public List<Modelo> mostrarPorId(int idModelo);
 
-    @Query("SELECT * FROM modelo WHERE nombre_modelo LIKE :nombre")
+    @Query("SELECT * FROM modelo WHERE nombre_modelo LIKE :nombre || '%'")
     List<Modelo> buscarPorNombre(String nombre);
 
     @Query("SELECT * FROM modelo WHERE anio_modelo = :anio")

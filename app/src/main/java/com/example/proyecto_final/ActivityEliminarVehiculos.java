@@ -1,6 +1,9 @@
 package com.example.proyecto_final;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -13,6 +16,7 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
+import Recursos.Restablecer;
 import conexion.Autos_Amistosos_BD;
 import entities.Modelo;
 import entities.Vehiculo;
@@ -24,6 +28,8 @@ public class ActivityEliminarVehiculos extends Activity {
     Spinner spinnerIdM, spinnerTipo, spinnerEstado;
 
     ArrayList<Vehiculo> lista = null;
+
+    Restablecer restablecer = new Restablecer();
 
     Autos_Amistosos_BD bd;
 
@@ -67,38 +73,56 @@ public class ActivityEliminarVehiculos extends Activity {
 
         }).start();
 
+        restablecer.restablecer(cajaIdV, cajaNumSerie, cajaPrecio, cajaKilometraje, cajaFechaFab, cajaFechaEntrada, spinnerIdM, spinnerTipo, spinnerEstado);
+
     }
 
 
     public void eliminarVehiculo(View v){
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(ActivityEliminarVehiculos.this);
+        builder.setTitle("Eliminar");
+        builder.setMessage("¿Estás seguro de eliminar este modelo?");
 
-                int numFilas = bd.vehiculoDAO().eliminarVehiculoPorId(cajaIdV.getText().toString());
+        builder.setPositiveButton("Sí", (dialog, which) -> {
 
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+
+                    int numFilas = bd.vehiculoDAO().eliminarVehiculoPorId(cajaIdV.getText().toString());
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
 
 
-                        if (numFilas == 1){
+                            if (numFilas == 1){
 
-                            Toast.makeText(getBaseContext(), "Eliminación correcta", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getBaseContext(), "Eliminación correcta", Toast.LENGTH_LONG).show();
 
-                        }else{
+                                restablecer.restablecer(cajaIdV, cajaNumSerie, cajaPrecio, cajaKilometraje, cajaFechaFab, cajaFechaEntrada, spinnerIdM, spinnerTipo, spinnerEstado);
 
-                            Toast.makeText(getBaseContext(), "Eliminación Incorrecta", Toast.LENGTH_LONG).show();
+
+                            }else{
+
+                                Toast.makeText(getBaseContext(), "Eliminación Incorrecta", Toast.LENGTH_LONG).show();
+
+                            }
+
 
                         }
+                    });
 
+                }
+            }).start();
 
-                    }
-                });
+        });
 
-            }
-        }).start();
+        builder.setNegativeButton("No", null);
+
+        builder.show();
+
 
     }
 
@@ -152,6 +176,30 @@ public class ActivityEliminarVehiculos extends Activity {
 
             }
         }).start();
+
+    }
+
+    public void regresarMenu(View v){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(ActivityEliminarVehiculos.this);
+        builder.setTitle("Salir");
+        builder.setMessage("¿Estás seguro de Cancelar?");
+
+        builder.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                Intent i = new Intent(ActivityEliminarVehiculos.this, ActivityMenu.class);
+
+                startActivity(i);
+
+            }
+        });
+
+        builder.setNegativeButton("No", null);
+
+        builder.show();
+
 
     }
 

@@ -1,6 +1,9 @@
 package com.example.proyecto_final;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -13,6 +16,7 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
+import Recursos.Restablecer;
 import conexion.Autos_Amistosos_BD;
 import entities.Modelo;
 
@@ -21,6 +25,8 @@ public class ActivityModificarModelos extends Activity {
     EditText cajaid, cajaNombre, cajaFabricante, cajaPuertas, cajaPeso, cajaPasajeros, cajaColor, cajaPais;
 
     Spinner spinnerAnio, spinnerCilindros;
+
+    Restablecer restablecer = new Restablecer();
 
     ArrayList<Modelo> lista = null;
 
@@ -65,6 +71,8 @@ public class ActivityModificarModelos extends Activity {
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerAnio.setAdapter(adapter);
+
+        restablecer.restablecer(cajaid, cajaNombre, cajaFabricante, cajaPuertas, cajaPeso, cajaPasajeros, cajaColor, cajaPais, spinnerAnio, spinnerCilindros);
 
     }
 
@@ -138,44 +146,82 @@ public class ActivityModificarModelos extends Activity {
 
         String pais = cajaPais.getText().toString();
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(ActivityModificarModelos.this);
+        builder.setTitle("Actualizar");
+        builder.setMessage("¿Estás seguro de actualizar este modelo?");
 
-                int agregado = bd.modeloDAO().actualizarModeloPorId(id,
+        builder.setPositiveButton("Sí", (dialog, which) -> {
 
-                        nombre,
-                        anio,
-                        fabricante,
-                        cilindros,
-                        puertas,
-                        peso,
-                        pasajeros,
-                        color,
-                        pais
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
 
-                );
+                    int agregado = bd.modeloDAO().actualizarModeloPorId(id,
 
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (agregado == 1){
+                            nombre,
+                            anio,
+                            fabricante,
+                            cilindros,
+                            puertas,
+                            peso,
+                            pasajeros,
+                            color,
+                            pais
 
-                            Toast.makeText(getBaseContext(), "Actualización correcta", Toast.LENGTH_LONG).show();
+                    );
 
-                        }else{
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (agregado == 1){
 
-                            Toast.makeText(getBaseContext(), "Actualización Incorrecta", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getBaseContext(), "Actualización correcta", Toast.LENGTH_LONG).show();
 
+                                restablecer.restablecer(cajaid, cajaNombre, cajaFabricante, cajaPuertas, cajaPeso, cajaPasajeros, cajaColor, cajaPais, spinnerAnio, spinnerCilindros);
+
+
+                            }else{
+
+                                Toast.makeText(getBaseContext(), "Actualización Incorrecta", Toast.LENGTH_LONG).show();
+
+                            }
                         }
-                    }
-                });
+                    });
+
+                }
+            }).start();
+
+        });
+
+        builder.setNegativeButton("No", null);
+
+        builder.show();
 
 
 
+    }
+
+    public void regresarMenu(View v){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(ActivityModificarModelos.this);
+        builder.setTitle("Confirmación");
+        builder.setMessage("¿Estás seguro de cancelar?");
+
+        builder.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                Intent i = new Intent(ActivityModificarModelos.this, ActivityMenu.class);
+
+                startActivity(i);
 
             }
-        }).start();
+        });
+
+        builder.setNegativeButton("No", null);
+
+        builder.show();
+
 
     }
 

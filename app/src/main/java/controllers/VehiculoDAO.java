@@ -14,7 +14,7 @@ public interface VehiculoDAO {
 
     // ALTAS
     @Insert
-    void agregarVehiculo(Vehiculo vehiculo);
+    long agregarVehiculo(Vehiculo vehiculo);
 
     // BAJAS
     @Query("DELETE FROM vehiculo WHERE id_vehiculo=:id")
@@ -28,7 +28,7 @@ public interface VehiculoDAO {
     @Query("SELECT * FROM vehiculo")
     List<Vehiculo> mostrarTodos();
 
-    @Query("SELECT * FROM vehiculo WHERE id_vehiculo = :idVehiculo")
+    @Query("SELECT * FROM vehiculo WHERE id_vehiculo LIKE :idVehiculo || '%'")
     List<Vehiculo> buscarPorIdVehiculo(String idVehiculo);
 
     // 2. Buscar por número de serie

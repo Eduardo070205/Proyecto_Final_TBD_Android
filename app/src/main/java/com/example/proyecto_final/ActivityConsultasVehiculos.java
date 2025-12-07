@@ -1,6 +1,8 @@
 package com.example.proyecto_final;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +16,7 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
+import Recursos.Restablecer;
 import conexion.Autos_Amistosos_BD;
 
 public class ActivityConsultasVehiculos extends Activity {
@@ -21,6 +24,8 @@ public class ActivityConsultasVehiculos extends Activity {
     EditText cajaVehiculo, cajaSerie, cajaPrecio, cajaKilometraje;
 
     Spinner spinnerModelo, spinnerTipo, spinnerEstado;
+
+    Restablecer restablecer = new Restablecer();
 
     Autos_Amistosos_BD bd;
 
@@ -75,6 +80,8 @@ public class ActivityConsultasVehiculos extends Activity {
             });
 
         }).start();
+
+        restablecer.restablecer(cajaVehiculo, cajaSerie, cajaPrecio, cajaKilometraje, spinnerModelo, spinnerTipo, spinnerEstado);
 
     }
 
@@ -163,6 +170,30 @@ public class ActivityConsultasVehiculos extends Activity {
         }
 
         startActivity(intent);
+    }
+
+    public void regresarMenu(View v){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(ActivityConsultasVehiculos.this);
+        builder.setTitle("Salir");
+        builder.setMessage("¿Estás seguro de Cancelar?");
+
+        builder.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                Intent i = new Intent(ActivityConsultasVehiculos.this, ActivityMenu.class);
+
+                startActivity(i);
+
+            }
+        });
+
+        builder.setNegativeButton("No", null);
+
+        builder.show();
+
+
     }
 
 

@@ -1,5 +1,8 @@
 package com.example.proyecto_final;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -19,6 +22,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import Recursos.Restablecer;
 import conexion.Autos_Amistosos_BD;
 import entities.Modelo;
 import entities.Vehiculo;
@@ -31,7 +35,9 @@ public class ActivityAltasVehiculos extends AppCompatActivity {
 
     Spinner spinnerIdM, spinnerTipo, spinnerEstado;
 
+    Restablecer restablecer = new Restablecer();
 
+    long numFilas = 0;
 
     Autos_Amistosos_BD bd;
 
@@ -129,20 +135,76 @@ public class ActivityAltasVehiculos extends AppCompatActivity {
             @Override
             public void run() {
 
-                bd.vehiculoDAO().agregarVehiculo(vehiculo);
+                numFilas = 0;
+
+                numFilas = bd.vehiculoDAO().agregarVehiculo(vehiculo);
 
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
 
-                        Toast.makeText(getBaseContext(), "Insercción correcta", Toast.LENGTH_LONG).show();
+                        if(numFilas > 0){
+
+                            AlertDialog.Builder builder = new AlertDialog.Builder(ActivityAltasVehiculos.this);
+                            builder.setTitle("Aviso");
+                            builder.setMessage("Se agrego el Modelo Correctamente.");
+                            builder.setPositiveButton("OK", null);
+                            builder.show();
+
+                            restablecer.restablecer(cajaIdV, cajaNumSerie, cajaPrecio, cajaKilometraje, txtFecha, cajaIdV, cajaNumSerie, cajaPrecio, cajaKilometraje);
+
+                        } else {
+
+                            AlertDialog.Builder builder = new AlertDialog.Builder(ActivityAltasVehiculos.this);
+                            builder.setTitle("Aviso");
+                            builder.setMessage("No se pudo agregar el Modelo.");
+                            builder.setPositiveButton("OK", null);
+                            builder.show();
+
+
+                        }
+
 
                     }
+
                 });
 
             }
         }).start();
 
+
+    }
+
+    public void regresarMenu(View v){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(ActivityAltasVehiculos.this);
+        builder.setTitle("Confirmación");
+        builder.setMessage("¿Estás seguro de cancelar?");
+
+        builder.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                restablecer.restablecer(cajaIdV, cajaNumSerie, cajaPrecio, cajaKilometraje, txtFecha, cajaIdV, cajaNumSerie, cajaPrecio, cajaKilometraje);
+
+
+                Intent i = new Intent(ActivityAltasVehiculos.this, ActivityMenu.class);
+
+                startActivity(i);
+
+            }
+        });
+
+        builder.setNegativeButton("No", null); // Solo cierra el diálogo
+
+        builder.show();
+
+
+    }
+
+    public void retablecer(View v){
+
+        restablecer.restablecer(cajaIdV, cajaNumSerie, cajaPrecio, cajaKilometraje, txtFecha, cajaIdV, cajaNumSerie, cajaPrecio, cajaKilometraje);
 
     }
 

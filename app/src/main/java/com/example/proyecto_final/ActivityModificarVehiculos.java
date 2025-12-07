@@ -1,5 +1,8 @@
 package com.example.proyecto_final;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -16,6 +19,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import java.util.ArrayList;
 import java.util.List;
 
+import Recursos.Restablecer;
 import conexion.Autos_Amistosos_BD;
 import entities.Vehiculo;
 
@@ -26,6 +30,8 @@ public class ActivityModificarVehiculos extends AppCompatActivity {
     EditText cajaIdV, cajaNumSerie, cajaPrecio, cajaKilometraje;
 
     Spinner spinnerIdM, spinnerTipo, spinnerEstado;
+
+    Restablecer restablecer = new Restablecer();
 
     ArrayList<Vehiculo> lista = null;
 
@@ -101,6 +107,7 @@ public class ActivityModificarVehiculos extends AppCompatActivity {
 
         }).start();
 
+        restablecer.restablecer(txtFecha1, txtFecha2, cajaIdV, cajaNumSerie, cajaPrecio, cajaKilometraje, spinnerIdM, spinnerTipo, spinnerEstado);
 
     }
 
@@ -117,41 +124,58 @@ public class ActivityModificarVehiculos extends AppCompatActivity {
         String tipo = spinnerTipo.getSelectedItem().toString();
         String estado = spinnerEstado.getSelectedItem().toString();
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(ActivityModificarVehiculos.this);
+        builder.setTitle("Eliminar");
+        builder.setMessage("¿Estás seguro de eliminar este modelo?");
 
-                int agregado = bd.vehiculoDAO().actualizarVehiculo(
+        builder.setPositiveButton("Sí", (dialog, which) -> {
 
-                        id,
-                        numSerie,
-                        idModelo,
-                        fechaFab,
-                        precio,
-                        kilometraje,
-                        fechaEntrada,
-                        tipo,
-                        estado
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
 
-                );
+                    int agregado = bd.vehiculoDAO().actualizarVehiculo(
 
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (agregado == 1){
+                            id,
+                            numSerie,
+                            idModelo,
+                            fechaFab,
+                            precio,
+                            kilometraje,
+                            fechaEntrada,
+                            tipo,
+                            estado
 
-                            Toast.makeText(getBaseContext(), "Actualización correcta", Toast.LENGTH_LONG).show();
+                    );
 
-                        }else{
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (agregado == 1){
 
-                            Toast.makeText(getBaseContext(), "Actualización Incorrecta", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getBaseContext(), "Actualización correcta", Toast.LENGTH_LONG).show();
 
+                                restablecer.restablecer(txtFecha1, txtFecha2, cajaIdV, cajaNumSerie, cajaPrecio, cajaKilometraje, spinnerIdM, spinnerTipo, spinnerEstado);
+
+
+                            }else{
+
+                                Toast.makeText(getBaseContext(), "Actualización Incorrecta", Toast.LENGTH_LONG).show();
+
+                            }
                         }
-                    }
-                });
+                    });
 
-            }
-        }).start();
+                }
+            }).start();
+
+        });
+
+        builder.setNegativeButton("No", null);
+
+        builder.show();
+
+
 
     }
 
@@ -206,4 +230,29 @@ public class ActivityModificarVehiculos extends AppCompatActivity {
         }).start();
 
     }
+
+    public void regresarMenu(View v){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(ActivityModificarVehiculos.this);
+        builder.setTitle("Salir");
+        builder.setMessage("¿Estás seguro de Cancelar?");
+
+        builder.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                Intent i = new Intent(ActivityModificarVehiculos.this, ActivityMenu.class);
+
+                startActivity(i);
+
+            }
+        });
+
+        builder.setNegativeButton("No", null);
+
+        builder.show();
+
+
+    }
+
 }

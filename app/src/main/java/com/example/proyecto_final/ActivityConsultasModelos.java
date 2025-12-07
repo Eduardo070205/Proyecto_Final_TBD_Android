@@ -1,6 +1,8 @@
 package com.example.proyecto_final;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import Recursos.Restablecer;
 import conexion.Autos_Amistosos_BD;
 import entities.Modelo;
 
@@ -25,6 +28,8 @@ public class ActivityConsultasModelos extends Activity {
     private RecyclerView.Adapter adapter;
 
     private RecyclerView.LayoutManager layoutManager;
+
+    Restablecer restablecer = new Restablecer();
 
     ArrayList<Modelo> datos = null;
 
@@ -40,6 +45,7 @@ public class ActivityConsultasModelos extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consultas_modelos);
+
 
 
 
@@ -90,6 +96,8 @@ public class ActivityConsultasModelos extends Activity {
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerAnio.setAdapter(adapter);
+
+        restablecer.restablecer(cajaId, cajaNombre, cajaFabricante, cajaPuertas, cajaPasajeros, cajaPais, spinnerAnio, spinnerCilindros);
 
 
     }
@@ -184,6 +192,30 @@ public class ActivityConsultasModelos extends Activity {
         }
 
         startActivity(i);
+    }
+
+    public void regresarMenu(View v){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(ActivityConsultasModelos.this);
+        builder.setTitle("Salir");
+        builder.setMessage("¿Estás seguro de Cancelar?");
+
+        builder.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                Intent i = new Intent(ActivityConsultasModelos.this, ActivityMenu.class);
+
+                startActivity(i);
+
+            }
+        });
+
+        builder.setNegativeButton("No", null);
+
+        builder.show();
+
+
     }
 
 }

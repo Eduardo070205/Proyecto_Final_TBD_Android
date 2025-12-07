@@ -1,6 +1,9 @@
 package com.example.proyecto_final;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -13,6 +16,7 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
+import Recursos.Restablecer;
 import conexion.Autos_Amistosos_BD;
 import entities.Modelo;
 
@@ -21,6 +25,8 @@ public class ActivityEliminarModelos extends Activity {
     EditText cajaid, cajaNombre, cajaFabricante, cajaPuertas, cajaPeso, cajaPasajeros, cajaColor, cajaPais;
 
     Spinner spinnerAnio, spinnerCilindros;
+
+    Restablecer restablecer = new Restablecer();
 
     ArrayList<Modelo> lista = null;
 
@@ -58,40 +64,46 @@ public class ActivityEliminarModelos extends Activity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerAnio.setAdapter(adapter);
 
+        restablecer.restablecer(cajaid, cajaNombre, cajaFabricante, cajaPuertas, cajaPeso, cajaPasajeros, cajaColor, cajaPais, spinnerAnio, spinnerCilindros);
+
     }
 
-    public void eliminarModelo(View v){
+    public void eliminarModelo(View v) {
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(ActivityEliminarModelos.this);
+        builder.setTitle("Eliminar");
+        builder.setMessage("¿Estás seguro de eliminar este modelo?");
 
-                int numFilas = bd.modeloDAO().eliminarModeloPirId(Integer.parseInt(cajaid.getText().toString()));
-
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
+        builder.setPositiveButton("Sí", (dialog, which) -> {
 
 
-                        if (numFilas == 1){
 
-                            Toast.makeText(getBaseContext(), "Eliminación correcta", Toast.LENGTH_LONG).show();
+            new Thread(() -> {
 
-                        }else{
+                int numFilas = bd.modeloDAO()
+                        .eliminarModeloPirId(Integer.parseInt(cajaid.getText().toString()));
 
-                            Toast.makeText(getBaseContext(), "Eliminación Incorrecta", Toast.LENGTH_LONG).show();
+                runOnUiThread(() -> {
+                    if (numFilas == 1) {
+                        Toast.makeText(ActivityEliminarModelos.this, "Eliminación correcta", Toast.LENGTH_LONG).show();
 
-                        }
+                        restablecer.restablecer(cajaid, cajaNombre, cajaFabricante, cajaPuertas, cajaPeso, cajaPasajeros, cajaColor, cajaPais, spinnerAnio, spinnerCilindros);
 
 
+                    } else {
+                        Toast.makeText(ActivityEliminarModelos.this, "No se encontró el modelo", Toast.LENGTH_LONG).show();
                     }
                 });
 
-            }
-        }).start();
+            }).start();
 
+        });
 
+        builder.setNegativeButton("No", null);
+
+        builder.show();
     }
+
 
     public void buscarModelo(View v) {
 
@@ -138,6 +150,30 @@ public class ActivityEliminarModelos extends Activity {
 
             }
         }).start();
+
+
+    }
+
+    public void regresarMenu(View v){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(ActivityEliminarModelos.this);
+        builder.setTitle("Confirmación");
+        builder.setMessage("¿Estás seguro de Salir?");
+
+        builder.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                Intent i = new Intent(ActivityEliminarModelos.this, ActivityMenu.class);
+
+                startActivity(i);
+
+            }
+        });
+
+        builder.setNegativeButton("No", null); // Solo cierra el diálogo
+
+        builder.show();
 
 
     }
