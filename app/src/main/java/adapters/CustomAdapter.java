@@ -1,4 +1,4 @@
-package custom_adapter;
+package adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,9 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.proyecto_final.R;
 
 import java.util.ArrayList;
-
-import entities.Modelo;
-import entities.Vehiculo;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder>{
 

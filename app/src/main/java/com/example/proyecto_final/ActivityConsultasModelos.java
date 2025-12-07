@@ -10,14 +10,12 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 
 import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import conexion.Autos_Amistosos_BD;
-import custom_adapter.CustomAdapter;
 import entities.Modelo;
 
 public class ActivityConsultasModelos extends Activity {

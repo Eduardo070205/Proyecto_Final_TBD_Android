@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="#EFEFEF">
+
+    <TextView
+        android:id="@+id/itemVehiculoID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ID Vehiculo"
+        android:textStyle="bold"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/itemVehiculoSerie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Número de serie"/>
+
+    <TextView
+        android:id="@+id/itemVehiculoPrecio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Precio"/>
+
+    <TextView
+        android:id="@+id/itemVehiculoTipo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tipo"/>
+
+</LinearLayout>

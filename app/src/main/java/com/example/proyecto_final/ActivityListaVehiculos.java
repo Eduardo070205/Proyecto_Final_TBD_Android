@@ -9,19 +9,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import adapters.VehiculoAdapter;
 import conexion.Autos_Amistosos_BD;
-import custom_adapter.CustomAdapter;
+import adapters.CustomAdapter;
 import entities.Vehiculo;
-
 public class ActivityListaVehiculos extends Activity {
 
-    private RecyclerView recyclerView;
+    RecyclerView recyclerView;
+    VehiculoAdapter adapter;
 
-    private RecyclerView.Adapter adapter;
-
-    private RecyclerView.LayoutManager layoutManager;
-
-    ArrayList<Vehiculo> datos = null;
+    ArrayList<Vehiculo> datos = new ArrayList<>();
 
     Autos_Amistosos_BD bd;
 
@@ -30,19 +27,20 @@ public class ActivityListaVehiculos extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_vehiculos);
 
-        bd = Autos_Amistosos_BD.getAppDatabase(this);
-
         recyclerView = findViewById(R.id.recyclerVehiculos);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        bd = Autos_Amistosos_BD.getAppDatabase(this);
 
         String tipo = getIntent().getStringExtra("tipo");
         String valor = getIntent().getStringExtra("valor");
 
         new Thread(() -> {
 
-            if (tipo == null) {
+            if (tipo == null || tipo.equals("todos")) {
                 datos = (ArrayList<Vehiculo>) bd.vehiculoDAO().mostrarTodos();
+
             } else {
 
                 switch (tipo) {
@@ -81,22 +79,14 @@ public class ActivityListaVehiculos extends Activity {
                         datos = (ArrayList<Vehiculo>)
                                 bd.vehiculoDAO().buscarPorEstado(valor);
                         break;
-
-                    case "todos":
-
-                        datos = (ArrayList<Vehiculo>)
-                                bd.vehiculoDAO().mostrarTodos();
-                        break;
-
                 }
             }
 
             runOnUiThread(() -> {
-                adapter = new CustomAdapter(datos);
+                adapter = new VehiculoAdapter(datos);
                 recyclerView.setAdapter(adapter);
             });
 
         }).start();
-
     }
 }

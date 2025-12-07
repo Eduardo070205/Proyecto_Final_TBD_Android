@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import conexion.Autos_Amistosos_BD;
-import custom_adapter.CustomAdapter;
+import adapters.CustomAdapter;
 import entities.Modelo;
 
 public class ActivityListaModelos extends Activity {
