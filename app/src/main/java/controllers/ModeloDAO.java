@@ -30,7 +30,7 @@ public interface ModeloDAO {
 
     // ============================= CONSULTAS =======================
 
-    @Query("SELECT * FROM modelo")
+    @Query("SELECT * FROM modelo ORDER BY id_modelo DESC")
     public List<Modelo> mostrarTodos();
 
     @Query("SELECT * FROM modelo WHERE id_modelo=:idModelo")

@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Locale;
 
 import Recursos.Restablecer;
+import Recursos.Validaciones;
 import conexion.Autos_Amistosos_BD;
 import entities.Modelo;
 import entities.Vehiculo;
@@ -106,72 +107,109 @@ public class ActivityAltasVehiculos extends AppCompatActivity {
 
     }
 
+
+
     public void agregarVehiculo(View v){
 
-        String id = cajaIdV.getText().toString();
-        String numSerie = cajaNumSerie.getText().toString();
-        int idModelo = Integer.parseInt(spinnerIdM.getSelectedItem().toString());
-        String fechaFab = txtFecha.getText().toString();
-        double precio = Double.parseDouble(cajaPrecio.getText().toString());
-        int kilometraje = Integer.parseInt(cajaKilometraje.getText().toString());
-        String fechaEntrada = fechaHoy;
-        String tipo = spinnerTipo.getSelectedItem().toString();
-        String estado = spinnerEstado.getSelectedItem().toString();
+        if(!Validaciones.validarCamposVacios(cajaIdV, cajaNumSerie, cajaPrecio, cajaKilometraje, txtFecha)){
 
-        Vehiculo vehiculo = new Vehiculo(
-                id,
-                numSerie,
-                idModelo,
-                fechaFab,
-                precio,
-                kilometraje,
-                fechaEntrada,
-                tipo,
-                estado
+            if(!Validaciones.validarSoloLetrasYNumeros(cajaIdV, cajaNumSerie)){
 
-        );
+                if(Validaciones.validarFechaNoMayorQueHoy(txtFecha)){
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
+                    String id = cajaIdV.getText().toString().toUpperCase();
+                    String numSerie = cajaNumSerie.getText().toString().toUpperCase();
+                    int idModelo = Integer.parseInt(spinnerIdM.getSelectedItem().toString());
+                    String fechaFab = txtFecha.getText().toString();
+                    double precio = Double.parseDouble(cajaPrecio.getText().toString());
+                    int kilometraje = Integer.parseInt(cajaKilometraje.getText().toString());
+                    String fechaEntrada = fechaHoy;
+                    String tipo = spinnerTipo.getSelectedItem().toString().toUpperCase();
+                    String estado = spinnerEstado.getSelectedItem().toString().toUpperCase();
 
-                numFilas = 0;
+                    Vehiculo vehiculo = new Vehiculo(
+                            id,
+                            numSerie,
+                            idModelo,
+                            fechaFab,
+                            precio,
+                            kilometraje,
+                            fechaEntrada,
+                            tipo,
+                            estado
 
-                numFilas = bd.vehiculoDAO().agregarVehiculo(vehiculo);
+                    );
 
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
 
-                        if(numFilas > 0){
+                            int existe = bd.vehiculoDAO().existeIdVehiculo(id);
 
-                            AlertDialog.Builder builder = new AlertDialog.Builder(ActivityAltasVehiculos.this);
-                            builder.setTitle("Aviso");
-                            builder.setMessage("Se agrego el Modelo Correctamente.");
-                            builder.setPositiveButton("OK", null);
-                            builder.show();
+                            numFilas = 0;
 
-                            restablecer.restablecer(cajaIdV, cajaNumSerie, cajaPrecio, cajaKilometraje, txtFecha, cajaIdV, cajaNumSerie, cajaPrecio, cajaKilometraje);
+                            if (existe > 0) {
+                                runOnUiThread(() -> {
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(ActivityAltasVehiculos.this);
+                                    builder.setTitle("Error");
+                                    builder.setMessage("Ese ID ya existe, ingrese otro.");
+                                    builder.setPositiveButton("OK", null);
+                                    builder.show();
+                                });
 
-                        } else {
+                            }else{
 
-                            AlertDialog.Builder builder = new AlertDialog.Builder(ActivityAltasVehiculos.this);
-                            builder.setTitle("Aviso");
-                            builder.setMessage("No se pudo agregar el Modelo.");
-                            builder.setPositiveButton("OK", null);
-                            builder.show();
+                                numFilas = bd.vehiculoDAO().agregarVehiculo(vehiculo);
+
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+
+                                        if(numFilas > 0){
+
+                                            AlertDialog.Builder builder = new AlertDialog.Builder(ActivityAltasVehiculos.this);
+                                            builder.setTitle("Aviso");
+                                            builder.setMessage("Se agrego el Modelo Correctamente.");
+                                            builder.setPositiveButton("OK", null);
+                                            builder.show();
+
+                                            restablecer.restablecer(cajaIdV, cajaNumSerie, cajaPrecio, cajaKilometraje, txtFecha, cajaIdV, cajaNumSerie, cajaPrecio, cajaKilometraje);
+
+                                        } else {
+
+                                            AlertDialog.Builder builder = new AlertDialog.Builder(ActivityAltasVehiculos.this);
+                                            builder.setTitle("Aviso");
+                                            builder.setMessage("No se pudo agregar el Modelo.");
+                                            builder.setPositiveButton("OK", null);
+                                            builder.show();
+
+
+                                        }
+
+
+                                    }
+
+                                });
+
+                            }
 
 
                         }
+                    }).start();
 
+                }else{
 
-                    }
+                    AlertDialog.Builder builder = new AlertDialog.Builder(ActivityAltasVehiculos.this);
+                    builder.setTitle("Error");
+                    builder.setMessage("La fecha no es valida.");
+                    builder.setPositiveButton("OK", null);
+                    builder.show();
 
-                });
+                }
 
             }
-        }).start();
 
+        }
 
     }
 

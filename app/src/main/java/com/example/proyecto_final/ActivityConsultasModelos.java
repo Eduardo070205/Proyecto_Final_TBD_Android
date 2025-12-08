@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
@@ -152,46 +153,63 @@ public class ActivityConsultasModelos extends Activity {
 
     public void buscarModelo(View v) {
 
+
+
         Intent i = new Intent(this, ActivityListaModelos.class);
 
-        if (radioId.isChecked()) {
+        if (radioId.isChecked() && !cajaId.getText().isEmpty()) {
             i.putExtra("filtro", "id");
             i.putExtra("valor", cajaId.getText().toString());
+            startActivity(i);
+
         }
-        else if (radioNombre.isChecked()) {
+        else if (radioNombre.isChecked() && !cajaNombre.getText().isEmpty()) {
             i.putExtra("filtro", "nombre");
             i.putExtra("valor", cajaNombre.getText().toString());
+            startActivity(i);
         }
-        else if (radioFabricante.isChecked()) {
+        else if (radioFabricante.isChecked() && !cajaFabricante.getText().isEmpty()) {
             i.putExtra("filtro", "fabricante");
             i.putExtra("valor", cajaFabricante.getText().toString());
+            startActivity(i);
         }
-        else if (radioPuertas.isChecked()) {
+        else if (radioPuertas.isChecked() && !cajaPuertas.getText().isEmpty()) {
             i.putExtra("filtro", "puertas");
             i.putExtra("valor", cajaPuertas.getText().toString());
+            startActivity(i);
         }
-        else if (radioPasajeros.isChecked()) {
+        else if (radioPasajeros.isChecked() && !cajaPasajeros.getText().isEmpty()) {
             i.putExtra("filtro", "pasajeros");
             i.putExtra("valor", cajaPasajeros.getText().toString());
+            startActivity(i);
         }
-        else if (radioPais.isChecked()) {
+        else if (radioPais.isChecked() && !cajaPais.getText().isEmpty()) {
             i.putExtra("filtro", "pais");
             i.putExtra("valor", cajaPais.getText().toString());
+            startActivity(i);
         }
         else if (radioCilindros.isChecked()) {
             i.putExtra("filtro", "cilindros");
             i.putExtra("valor", spinnerCilindros.getSelectedItem().toString());
+            startActivity(i);
         }
         else if (radioAnio.isChecked()) {
             i.putExtra("filtro", "anio");
             i.putExtra("valor", spinnerAnio.getSelectedItem().toString());
+            startActivity(i);
         }
         else if (radioTodos.isChecked()) {
             i.putExtra("filtro", "todos");
             i.putExtra("valor", "");
+            startActivity(i);
+        }else{
+
+            Toast.makeText(getBaseContext(), "No se encontró el modelo", Toast.LENGTH_LONG).show();
+
+
         }
 
-        startActivity(i);
+
     }
 
     public void regresarMenu(View v){

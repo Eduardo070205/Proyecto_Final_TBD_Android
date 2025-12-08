@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -132,44 +133,64 @@ public class ActivityConsultasVehiculos extends Activity {
 
         Intent intent = new Intent(this, ActivityListaVehiculos.class);
 
-        if (((RadioButton)findViewById(R.id.radioVehiculosIDVehiculo)).isChecked()) {
+        if (((RadioButton)findViewById(R.id.radioVehiculosIDVehiculo)).isChecked() && !cajaVehiculo.getText().isEmpty()) {
 
             intent.putExtra("tipo", "idVehiculo");
-            intent.putExtra("valor", cajaVehiculo.getText().toString());
+            intent.putExtra("valor", cajaVehiculo.getText().toString().toUpperCase());
+            startActivity(intent);
 
-        } else if (((RadioButton)findViewById(R.id.radioVehiculoNumSerie)).isChecked()) {
+        } else if (((RadioButton)findViewById(R.id.radioVehiculoNumSerie)).isChecked() && !cajaSerie.getText().isEmpty()) {
 
             intent.putExtra("tipo", "numeroSerie");
             intent.putExtra("valor", cajaSerie.getText().toString());
+            startActivity(intent);
+
         } else if (((RadioButton)findViewById(R.id.radioVehiculosIDModelo)).isChecked()) {
 
             intent.putExtra("tipo", "idModelo");
             intent.putExtra("valor", spinnerModelo.getSelectedItem().toString());
-        } else if (((RadioButton)findViewById(R.id.radioVehiculosPrecio)).isChecked()) {
+            startActivity(intent);
+
+        } else if (((RadioButton)findViewById(R.id.radioVehiculosPrecio)).isChecked() && !cajaPrecio.getText().isEmpty()) {
 
             intent.putExtra("tipo", "precio");
             intent.putExtra("valor", cajaPrecio.getText().toString());
-        } else if (((RadioButton)findViewById(R.id.radioVehiculosKilometraje)).isChecked()) {
+            startActivity(intent);
+
+        } else if (((RadioButton)findViewById(R.id.radioVehiculosKilometraje)).isChecked() && !cajaKilometraje.getText().isEmpty()) {
 
             intent.putExtra("tipo", "kilometraje");
             intent.putExtra("valor", cajaKilometraje.getText().toString());
+            startActivity(intent);
+
         } else if (((RadioButton)findViewById(R.id.radioVehiculosTipo)).isChecked()) {
 
             intent.putExtra("tipo", "tipo");
             intent.putExtra("valor", spinnerTipo.getSelectedItem().toString());
+            startActivity(intent);
+
         } else if (((RadioButton)findViewById(R.id.radioVehiculosEstado)).isChecked()) {
 
             intent.putExtra("tipo", "estado");
             intent.putExtra("valor", spinnerEstado.getSelectedItem().toString());
+            startActivity(intent);
+
 
         }else if (((RadioButton)findViewById(R.id.radioVehiculosTodos)).isChecked()){
 
             intent.putExtra("tipo", "todos");
             intent.putExtra("valor", "");
+            startActivity(intent);
+
+
+        }else{
+
+            Toast.makeText(getBaseContext(), "No se encontró el vehículo", Toast.LENGTH_LONG).show();
+
 
         }
 
-        startActivity(intent);
+
     }
 
     public void regresarMenu(View v){

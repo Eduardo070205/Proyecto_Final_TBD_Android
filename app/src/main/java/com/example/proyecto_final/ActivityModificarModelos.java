@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Recursos.Restablecer;
+import Recursos.Validaciones;
 import conexion.Autos_Amistosos_BD;
 import entities.Modelo;
 
@@ -82,122 +83,139 @@ public class ActivityModificarModelos extends Activity {
         ArrayAdapter adapter;
         int posicion;
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-
-                lista = (ArrayList<Modelo>) bd.modeloDAO().mostrarPorId(Integer.parseInt(cajaid.getText().toString()));
-
-                runOnUiThread(() -> {
-
-                    if (lista == null || lista.isEmpty()) {
-                        Toast.makeText(getBaseContext(), "No se encontró el modelo", Toast.LENGTH_LONG).show();
-                        return;
-                    }
-
-                    Modelo m = lista.get(0);
-
-                    cajaNombre.setText(m.getNombre_modelo());
-                    cajaFabricante.setText(m.getFabricante());
-                    cajaPuertas.setText(String.valueOf(m.getNumero_puertas()));
-                    cajaPeso.setText(String.valueOf(m.getPeso()));
-                    cajaPasajeros.setText(String.valueOf(m.getCapacidad_pasajeros()));
-                    cajaColor.setText(m.getColor_base());
-                    cajaPais.setText(m.getPais_fabricacion());
-
-
-                    String valorAnio = String.valueOf(m.getAnio_modelo());
-                    ArrayAdapter adapterAnio = (ArrayAdapter) spinnerAnio.getAdapter();
-                    int posAnio = adapterAnio.getPosition(valorAnio);
-                    spinnerAnio.setSelection(posAnio);
-
-
-                    String valorCil = String.valueOf(m.getNumero_cilindros());
-                    ArrayAdapter adapterCil = (ArrayAdapter) spinnerCilindros.getAdapter();
-                    int posCil = adapterCil.getPosition(valorCil);
-                    spinnerCilindros.setSelection(posCil);
-
-                });
-
-            }
-        }).start();
-
-    }
-
-    public void actualizarModelo(View v){
-
-        int id = Integer.parseInt(cajaid.getText().toString());
-
-        String nombre = cajaNombre.getText().toString().toUpperCase();
-
-        int anio = Integer.parseInt(spinnerAnio.getSelectedItem().toString());
-
-        String fabricante = cajaFabricante.getText().toString().toUpperCase();
-
-        int cilindros = Integer.parseInt(spinnerCilindros.getSelectedItem().toString());
-
-        int puertas = Integer.parseInt(cajaPuertas.getText().toString());
-
-        double peso =  Double.valueOf(cajaPeso.getText().toString());
-
-        int pasajeros = Integer.parseInt(cajaPasajeros.getText().toString());
-
-        String color = cajaColor.getText().toString();
-
-        String pais = cajaPais.getText().toString();
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(ActivityModificarModelos.this);
-        builder.setTitle("Actualizar");
-        builder.setMessage("¿Estás seguro de actualizar este modelo?");
-
-        builder.setPositiveButton("Sí", (dialog, which) -> {
+        if(!cajaid.getText().isEmpty()){
 
             new Thread(new Runnable() {
                 @Override
                 public void run() {
 
-                    int agregado = bd.modeloDAO().actualizarModeloPorId(id,
+                    lista = (ArrayList<Modelo>) bd.modeloDAO().mostrarPorId(Integer.parseInt(cajaid.getText().toString()));
 
-                            nombre,
-                            anio,
-                            fabricante,
-                            cilindros,
-                            puertas,
-                            peso,
-                            pasajeros,
-                            color,
-                            pais
+                    runOnUiThread(() -> {
 
-                    );
-
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (agregado == 1){
-
-                                Toast.makeText(getBaseContext(), "Actualización correcta", Toast.LENGTH_LONG).show();
-
-                                restablecer.restablecer(cajaid, cajaNombre, cajaFabricante, cajaPuertas, cajaPeso, cajaPasajeros, cajaColor, cajaPais, spinnerAnio, spinnerCilindros);
-
-
-                            }else{
-
-                                Toast.makeText(getBaseContext(), "Actualización Incorrecta", Toast.LENGTH_LONG).show();
-
-                            }
+                        if (lista == null || lista.isEmpty()) {
+                            Toast.makeText(getBaseContext(), "No se encontró el modelo", Toast.LENGTH_LONG).show();
+                            return;
                         }
+
+                        Modelo m = lista.get(0);
+
+                        cajaNombre.setText(m.getNombre_modelo());
+                        cajaFabricante.setText(m.getFabricante());
+                        cajaPuertas.setText(String.valueOf(m.getNumero_puertas()));
+                        cajaPeso.setText(String.valueOf(m.getPeso()));
+                        cajaPasajeros.setText(String.valueOf(m.getCapacidad_pasajeros()));
+                        cajaColor.setText(m.getColor_base());
+                        cajaPais.setText(m.getPais_fabricacion());
+
+
+                        String valorAnio = String.valueOf(m.getAnio_modelo());
+                        ArrayAdapter adapterAnio = (ArrayAdapter) spinnerAnio.getAdapter();
+                        int posAnio = adapterAnio.getPosition(valorAnio);
+                        spinnerAnio.setSelection(posAnio);
+
+
+                        String valorCil = String.valueOf(m.getNumero_cilindros());
+                        ArrayAdapter adapterCil = (ArrayAdapter) spinnerCilindros.getAdapter();
+                        int posCil = adapterCil.getPosition(valorCil);
+                        spinnerCilindros.setSelection(posCil);
+
                     });
 
                 }
             }).start();
 
-        });
+        }else{
 
-        builder.setNegativeButton("No", null);
+            Toast.makeText(getBaseContext(), "No se encontró el modelo", Toast.LENGTH_LONG).show();
 
-        builder.show();
+        }
 
 
+
+    }
+
+    public void actualizarModelo(View v){
+
+        if(!Validaciones.validarCamposVacios(cajaid, cajaNombre, cajaFabricante, cajaPuertas, cajaPeso, cajaPasajeros, cajaColor, cajaPais)){
+
+
+            if(!Validaciones.validarSoloLetras(cajaNombre, cajaFabricante, cajaColor, cajaPais)){
+
+                int id = Integer.parseInt(cajaid.getText().toString());
+
+                String nombre = cajaNombre.getText().toString().toUpperCase();
+
+                int anio = Integer.parseInt(spinnerAnio.getSelectedItem().toString());
+
+                String fabricante = cajaFabricante.getText().toString().toUpperCase();
+
+                int cilindros = Integer.parseInt(spinnerCilindros.getSelectedItem().toString());
+
+                int puertas = Integer.parseInt(cajaPuertas.getText().toString());
+
+                double peso =  Double.parseDouble(cajaPeso.getText().toString());
+
+                int pasajeros = Integer.parseInt(cajaPasajeros.getText().toString());
+
+                String color = cajaColor.getText().toString().toUpperCase();
+
+                String pais = cajaPais.getText().toString().toUpperCase();
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(ActivityModificarModelos.this);
+                builder.setTitle("Actualizar");
+                builder.setMessage("¿Estás seguro de actualizar este modelo?");
+
+                builder.setPositiveButton("Sí", (dialog, which) -> {
+
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            int agregado = bd.modeloDAO().actualizarModeloPorId(id,
+
+                                    nombre,
+                                    anio,
+                                    fabricante,
+                                    cilindros,
+                                    puertas,
+                                    peso,
+                                    pasajeros,
+                                    color,
+                                    pais
+
+                            );
+
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    if (agregado == 1){
+
+                                        Toast.makeText(getBaseContext(), "Actualización correcta", Toast.LENGTH_LONG).show();
+
+                                        restablecer.restablecer(cajaid, cajaNombre, cajaFabricante, cajaPuertas, cajaPeso, cajaPasajeros, cajaColor, cajaPais, spinnerAnio, spinnerCilindros);
+
+
+                                    }else{
+
+                                        Toast.makeText(getBaseContext(), "Actualización Incorrecta", Toast.LENGTH_LONG).show();
+
+                                    }
+                                }
+                            });
+
+                        }
+                    }).start();
+
+                });
+
+                builder.setNegativeButton("No", null);
+
+                builder.show();
+
+            }
+
+        }
 
     }
 

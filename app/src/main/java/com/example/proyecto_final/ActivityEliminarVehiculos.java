@@ -80,48 +80,58 @@ public class ActivityEliminarVehiculos extends Activity {
 
     public void eliminarVehiculo(View v){
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(ActivityEliminarVehiculos.this);
-        builder.setTitle("Eliminar");
-        builder.setMessage("¿Estás seguro de eliminar este modelo?");
+        if(!cajaIdV.getText().isEmpty()){
 
-        builder.setPositiveButton("Sí", (dialog, which) -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(ActivityEliminarVehiculos.this);
+            builder.setTitle("Eliminar");
+            builder.setMessage("¿Estás seguro de eliminar este modelo?");
 
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
+            builder.setPositiveButton("Sí", (dialog, which) -> {
 
-                    int numFilas = bd.vehiculoDAO().eliminarVehiculoPorId(cajaIdV.getText().toString());
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
 
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
+                        int numFilas = bd.vehiculoDAO().eliminarVehiculoPorId(cajaIdV.getText().toString().toUpperCase());
 
-
-                            if (numFilas == 1){
-
-                                Toast.makeText(getBaseContext(), "Eliminación correcta", Toast.LENGTH_LONG).show();
-
-                                restablecer.restablecer(cajaIdV, cajaNumSerie, cajaPrecio, cajaKilometraje, cajaFechaFab, cajaFechaEntrada, spinnerIdM, spinnerTipo, spinnerEstado);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
 
 
-                            }else{
+                                if (numFilas == 1){
 
-                                Toast.makeText(getBaseContext(), "Eliminación Incorrecta", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getBaseContext(), "Eliminación correcta", Toast.LENGTH_LONG).show();
+
+                                    restablecer.restablecer(cajaIdV, cajaNumSerie, cajaPrecio, cajaKilometraje, cajaFechaFab, cajaFechaEntrada, spinnerIdM, spinnerTipo, spinnerEstado);
+
+
+                                }else{
+
+                                    Toast.makeText(getBaseContext(), "Eliminación Incorrecta", Toast.LENGTH_LONG).show();
+
+                                }
+
 
                             }
+                        });
+
+                    }
+                }).start();
+
+            });
+
+            builder.setNegativeButton("No", null);
+
+            builder.show();
+
+        }else{
+
+            Toast.makeText(getBaseContext(), "No se encontró el vehículo, el campo esta vacío", Toast.LENGTH_LONG).show();
+
+        }
 
 
-                        }
-                    });
-
-                }
-            }).start();
-
-        });
-
-        builder.setNegativeButton("No", null);
-
-        builder.show();
 
 
     }
@@ -133,49 +143,60 @@ public class ActivityEliminarVehiculos extends Activity {
         ArrayAdapter adapter;
         int posicion;
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
+        if(!cajaIdV.getText().isEmpty()){
 
-                lista = (ArrayList<Vehiculo>) bd.vehiculoDAO().buscarPorIdVehiculo(cajaIdV.getText().toString());
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
 
-                runOnUiThread(() -> {
+                    lista = (ArrayList<Vehiculo>) bd.vehiculoDAO().buscarPorIdVehiculo(cajaIdV.getText().toString().toUpperCase());
 
-                    if (lista == null || lista.isEmpty()) {
-                        Toast.makeText(getBaseContext(), "No se encontró el modelo", Toast.LENGTH_LONG).show();
-                        return;
-                    }
+                    runOnUiThread(() -> {
 
-                    Vehiculo vehiculo = lista.get(0);
+                        if (lista == null || lista.isEmpty()) {
+                            Toast.makeText(getBaseContext(), "No se encontró el modelo", Toast.LENGTH_LONG).show();
+                            return;
+                        }
 
-                    cajaNumSerie.setText(vehiculo.getNumero_serie());
-                    cajaFechaFab.setText(vehiculo.getFecha_fabricacion());
-                    cajaPrecio.setText(String.valueOf(vehiculo.getPrecio()));
-                    cajaKilometraje.setText(String.valueOf(vehiculo.getKilometraje()));
-                    cajaFechaEntrada.setText(vehiculo.getFehca_entrada());
+                        Vehiculo vehiculo = lista.get(0);
 
-
-                    String valorModelo = String.valueOf(vehiculo.getId_modelo_fk());
-                    ArrayAdapter adapterModelo = (ArrayAdapter) spinnerIdM.getAdapter();
-                    int posModelo = adapterModelo.getPosition(valorModelo);
-                    spinnerIdM.setSelection(posModelo);
-
-                    String valorTipo = String.valueOf(vehiculo.getTipo());
-                    ArrayAdapter adapterTipo = (ArrayAdapter) spinnerTipo.getAdapter();
-                    int posTipo = adapterTipo.getPosition(valorTipo);
-                    spinnerTipo.setSelection(posTipo);
-
-                    String valorEstado = String.valueOf(vehiculo.getEstado());
-                    ArrayAdapter adapterEstado = (ArrayAdapter) spinnerEstado.getAdapter();
-                    int posEstado = adapterEstado.getPosition(valorEstado);
-                    spinnerEstado.setSelection(posEstado);
+                        cajaNumSerie.setText(vehiculo.getNumero_serie());
+                        cajaFechaFab.setText(vehiculo.getFecha_fabricacion());
+                        cajaPrecio.setText(String.valueOf(vehiculo.getPrecio()));
+                        cajaKilometraje.setText(String.valueOf(vehiculo.getKilometraje()));
+                        cajaFechaEntrada.setText(vehiculo.getFecha_entrada());
 
 
+                        String valorModelo = String.valueOf(vehiculo.getId_modelo_fk());
+                        ArrayAdapter adapterModelo = (ArrayAdapter) spinnerIdM.getAdapter();
+                        int posModelo = adapterModelo.getPosition(valorModelo);
+                        spinnerIdM.setSelection(posModelo);
 
-                });
+                        String valorTipo = String.valueOf(vehiculo.getTipo());
+                        ArrayAdapter adapterTipo = (ArrayAdapter) spinnerTipo.getAdapter();
+                        int posTipo = adapterTipo.getPosition(valorTipo);
+                        spinnerTipo.setSelection(posTipo);
 
-            }
-        }).start();
+                        String valorEstado = String.valueOf(vehiculo.getEstado());
+                        ArrayAdapter adapterEstado = (ArrayAdapter) spinnerEstado.getAdapter();
+                        int posEstado = adapterEstado.getPosition(valorEstado);
+                        spinnerEstado.setSelection(posEstado);
+
+
+
+                    });
+
+                }
+            }).start();
+
+        }else{
+
+            Toast.makeText(getBaseContext(), "No se encontró el vehículo", Toast.LENGTH_LONG).show();
+
+
+        }
+
+
 
     }
 

@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Recursos.Restablecer;
+import Recursos.Validaciones;
 import conexion.Autos_Amistosos_BD;
 import entities.Vehiculo;
 
@@ -114,68 +115,99 @@ public class ActivityModificarVehiculos extends AppCompatActivity {
 
     public void modificarVehiculo(View v){
 
-        String id = cajaIdV.getText().toString();
-        String numSerie = cajaNumSerie.getText().toString();
-        int idModelo = Integer.parseInt(spinnerIdM.getSelectedItem().toString());
-        String fechaFab = txtFecha1.getText().toString();
-        double precio = Double.parseDouble(cajaPrecio.getText().toString());
-        int kilometraje = Integer.parseInt(cajaKilometraje.getText().toString());
-        String fechaEntrada = txtFecha2.getText().toString();
-        String tipo = spinnerTipo.getSelectedItem().toString();
-        String estado = spinnerEstado.getSelectedItem().toString();
+        if(!Validaciones.validarCamposVacios(cajaIdV, cajaNumSerie, cajaPrecio, cajaKilometraje, txtFecha1, txtFecha2)){
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(ActivityModificarVehiculos.this);
-        builder.setTitle("Eliminar");
-        builder.setMessage("¿Estás seguro de eliminar este modelo?");
+            if(!Validaciones.validarSoloLetrasYNumeros(cajaIdV, cajaNumSerie)){
 
-        builder.setPositiveButton("Sí", (dialog, which) -> {
+                if(Validaciones.validarFechaNoMayorQueHoy(txtFecha1)){
 
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
+                    if(Validaciones.validarFechaNoMayorQueHoy(txtFecha2)){
 
-                    int agregado = bd.vehiculoDAO().actualizarVehiculo(
+                        String id = cajaIdV.getText().toString().toUpperCase();
+                        String numSerie = cajaNumSerie.getText().toString().toUpperCase();
+                        int idModelo = Integer.parseInt(spinnerIdM.getSelectedItem().toString());
+                        String fechaFab = txtFecha1.getText().toString();
+                        double precio = Double.parseDouble(cajaPrecio.getText().toString());
+                        int kilometraje = Integer.parseInt(cajaKilometraje.getText().toString());
+                        String fechaEntrada = txtFecha2.getText().toString();
+                        String tipo = spinnerTipo.getSelectedItem().toString();
+                        String estado = spinnerEstado.getSelectedItem().toString();
 
-                            id,
-                            numSerie,
-                            idModelo,
-                            fechaFab,
-                            precio,
-                            kilometraje,
-                            fechaEntrada,
-                            tipo,
-                            estado
+                        AlertDialog.Builder builder = new AlertDialog.Builder(ActivityModificarVehiculos.this);
+                        builder.setTitle("Modificar");
+                        builder.setMessage("¿Estás seguro de modificar este modelo?");
 
-                    );
+                        builder.setPositiveButton("Sí", (dialog, which) -> {
 
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (agregado == 1){
+                            new Thread(new Runnable() {
+                                @Override
+                                public void run() {
 
-                                Toast.makeText(getBaseContext(), "Actualización correcta", Toast.LENGTH_LONG).show();
+                                    int agregado = bd.vehiculoDAO().actualizarVehiculo(
 
-                                restablecer.restablecer(txtFecha1, txtFecha2, cajaIdV, cajaNumSerie, cajaPrecio, cajaKilometraje, spinnerIdM, spinnerTipo, spinnerEstado);
+                                            id,
+                                            numSerie,
+                                            idModelo,
+                                            fechaFab,
+                                            precio,
+                                            kilometraje,
+                                            fechaEntrada,
+                                            tipo,
+                                            estado
+
+                                    );
+
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            if (agregado == 1){
+
+                                                Toast.makeText(getBaseContext(), "Actualización correcta", Toast.LENGTH_LONG).show();
+
+                                                restablecer.restablecer(txtFecha1, txtFecha2, cajaIdV, cajaNumSerie, cajaPrecio, cajaKilometraje, spinnerIdM, spinnerTipo, spinnerEstado);
 
 
-                            }else{
+                                            }else{
 
-                                Toast.makeText(getBaseContext(), "Actualización Incorrecta", Toast.LENGTH_LONG).show();
+                                                Toast.makeText(getBaseContext(), "Actualización Incorrecta", Toast.LENGTH_LONG).show();
 
-                            }
-                        }
-                    });
+                                            }
+                                        }
+                                    });
+
+                                }
+                            }).start();
+
+                        });
+
+                        builder.setNegativeButton("No", null);
+
+                        builder.show();
+
+                    }else{
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(ActivityModificarVehiculos.this);
+                        builder.setTitle("Error");
+                        builder.setMessage("La fecha de entrada no es valida.");
+                        builder.setPositiveButton("OK", null);
+                        builder.show();
+
+                    }
+
+                }else{
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(ActivityModificarVehiculos.this);
+                    builder.setTitle("Error");
+                    builder.setMessage("La fecha de fabricacion no es valida.");
+                    builder.setPositiveButton("OK", null);
+                    builder.show();
+
 
                 }
-            }).start();
 
-        });
+            }
 
-        builder.setNegativeButton("No", null);
-
-        builder.show();
-
-
+        }
 
     }
 
@@ -185,49 +217,60 @@ public class ActivityModificarVehiculos extends AppCompatActivity {
         ArrayAdapter adapter;
         int posicion;
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
+        if(!cajaIdV.getText().isEmpty()){
 
-                lista = (ArrayList<Vehiculo>) bd.vehiculoDAO().buscarPorIdVehiculo(cajaIdV.getText().toString());
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
 
-                runOnUiThread(() -> {
+                    lista = (ArrayList<Vehiculo>) bd.vehiculoDAO().buscarPorIdVehiculo(cajaIdV.getText().toString().toUpperCase());
 
-                    if (lista == null || lista.isEmpty()) {
-                        Toast.makeText(getBaseContext(), "No se encontró el modelo", Toast.LENGTH_LONG).show();
-                        return;
-                    }
+                    runOnUiThread(() -> {
 
-                    Vehiculo vehiculo = lista.get(0);
+                        if (lista == null || lista.isEmpty()) {
+                            Toast.makeText(getBaseContext(), "No se encontró el modelo", Toast.LENGTH_LONG).show();
+                            return;
+                        }
 
-                    cajaNumSerie.setText(vehiculo.getNumero_serie());
-                    txtFecha1.setText(vehiculo.getFecha_fabricacion());
-                    cajaPrecio.setText(String.valueOf(vehiculo.getPrecio()));
-                    cajaKilometraje.setText(String.valueOf(vehiculo.getKilometraje()));
-                    txtFecha2.setText(vehiculo.getFehca_entrada());
+                        Vehiculo vehiculo = lista.get(0);
 
-
-                    String valorModelo = String.valueOf(vehiculo.getId_modelo_fk());
-                    ArrayAdapter adapterModelo = (ArrayAdapter) spinnerIdM.getAdapter();
-                    int posModelo = adapterModelo.getPosition(valorModelo);
-                    spinnerIdM.setSelection(posModelo);
-
-                    String valorTipo = String.valueOf(vehiculo.getTipo());
-                    ArrayAdapter adapterTipo = (ArrayAdapter) spinnerTipo.getAdapter();
-                    int posTipo = adapterTipo.getPosition(valorTipo);
-                    spinnerTipo.setSelection(posTipo);
-
-                    String valorEstado = String.valueOf(vehiculo.getEstado());
-                    ArrayAdapter adapterEstado = (ArrayAdapter) spinnerEstado.getAdapter();
-                    int posEstado = adapterEstado.getPosition(valorEstado);
-                    spinnerEstado.setSelection(posEstado);
+                        cajaNumSerie.setText(vehiculo.getNumero_serie());
+                        txtFecha1.setText(vehiculo.getFecha_fabricacion());
+                        cajaPrecio.setText(String.valueOf(vehiculo.getPrecio()));
+                        cajaKilometraje.setText(String.valueOf(vehiculo.getKilometraje()));
+                        txtFecha2.setText(vehiculo.getFecha_entrada());
 
 
+                        String valorModelo = String.valueOf(vehiculo.getId_modelo_fk());
+                        ArrayAdapter adapterModelo = (ArrayAdapter) spinnerIdM.getAdapter();
+                        int posModelo = adapterModelo.getPosition(valorModelo);
+                        spinnerIdM.setSelection(posModelo);
 
-                });
+                        String valorTipo = String.valueOf(vehiculo.getTipo());
+                        ArrayAdapter adapterTipo = (ArrayAdapter) spinnerTipo.getAdapter();
+                        int posTipo = adapterTipo.getPosition(valorTipo);
+                        spinnerTipo.setSelection(posTipo);
 
-            }
-        }).start();
+                        String valorEstado = String.valueOf(vehiculo.getEstado());
+                        ArrayAdapter adapterEstado = (ArrayAdapter) spinnerEstado.getAdapter();
+                        int posEstado = adapterEstado.getPosition(valorEstado);
+                        spinnerEstado.setSelection(posEstado);
+
+
+
+                    });
+
+                }
+            }).start();
+
+        }else{
+
+            Toast.makeText(getBaseContext(), "No se encontró el vehículo", Toast.LENGTH_LONG).show();
+
+
+        }
+
+
 
     }
 

@@ -70,38 +70,46 @@ public class ActivityEliminarModelos extends Activity {
 
     public void eliminarModelo(View v) {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(ActivityEliminarModelos.this);
-        builder.setTitle("Eliminar");
-        builder.setMessage("¿Estás seguro de eliminar este modelo?");
+        if(!cajaid.getText().isEmpty()){
 
-        builder.setPositiveButton("Sí", (dialog, which) -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(ActivityEliminarModelos.this);
+            builder.setTitle("Eliminar");
+            builder.setMessage("¿Estás seguro de eliminar este modelo?");
 
-
-
-            new Thread(() -> {
-
-                int numFilas = bd.modeloDAO()
-                        .eliminarModeloPirId(Integer.parseInt(cajaid.getText().toString()));
-
-                runOnUiThread(() -> {
-                    if (numFilas == 1) {
-                        Toast.makeText(ActivityEliminarModelos.this, "Eliminación correcta", Toast.LENGTH_LONG).show();
-
-                        restablecer.restablecer(cajaid, cajaNombre, cajaFabricante, cajaPuertas, cajaPeso, cajaPasajeros, cajaColor, cajaPais, spinnerAnio, spinnerCilindros);
+            builder.setPositiveButton("Sí", (dialog, which) -> {
 
 
-                    } else {
-                        Toast.makeText(ActivityEliminarModelos.this, "No se encontró el modelo", Toast.LENGTH_LONG).show();
-                    }
-                });
+                new Thread(() -> {
 
-            }).start();
+                    int numFilas = bd.modeloDAO()
+                            .eliminarModeloPirId(Integer.parseInt(cajaid.getText().toString()));
 
-        });
+                    runOnUiThread(() -> {
+                        if (numFilas == 1) {
+                            Toast.makeText(ActivityEliminarModelos.this, "Eliminación correcta", Toast.LENGTH_LONG).show();
 
-        builder.setNegativeButton("No", null);
+                            restablecer.restablecer(cajaid, cajaNombre, cajaFabricante, cajaPuertas, cajaPeso, cajaPasajeros, cajaColor, cajaPais, spinnerAnio, spinnerCilindros);
 
-        builder.show();
+
+                        } else {
+                            Toast.makeText(ActivityEliminarModelos.this, "No se encontró el modelo", Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+                }).start();
+
+            });
+
+            builder.setNegativeButton("No", null);
+
+            builder.show();
+
+        }else{
+
+            Toast.makeText(getBaseContext(), "No se encontró el Modelo, el capo esta vacío", Toast.LENGTH_LONG).show();
+
+        }
+
     }
 
 
@@ -111,45 +119,56 @@ public class ActivityEliminarModelos extends Activity {
         ArrayAdapter adapter;
         int posicion;
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
+        if(!cajaid.getText().isEmpty()){
 
-                lista = (ArrayList<Modelo>) bd.modeloDAO().mostrarPorId(Integer.parseInt(cajaid.getText().toString()));
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
 
-                runOnUiThread(() -> {
+                    lista = (ArrayList<Modelo>) bd.modeloDAO().mostrarPorId(Integer.parseInt(cajaid.getText().toString()));
 
-                    if (lista == null || lista.isEmpty()) {
-                        Toast.makeText(getBaseContext(), "No se encontró el modelo", Toast.LENGTH_LONG).show();
-                        return;
-                    }
+                    runOnUiThread(() -> {
 
-                    Modelo m = lista.get(0);
+                        if (lista == null || lista.isEmpty()) {
+                            Toast.makeText(getBaseContext(), "No se encontró el modelo", Toast.LENGTH_LONG).show();
+                            return;
+                        }
 
-                    cajaNombre.setText(m.getNombre_modelo());
-                    cajaFabricante.setText(m.getFabricante());
-                    cajaPuertas.setText(String.valueOf(m.getNumero_puertas()));
-                    cajaPeso.setText(String.valueOf(m.getPeso()));
-                    cajaPasajeros.setText(String.valueOf(m.getCapacidad_pasajeros()));
-                    cajaColor.setText(m.getColor_base());
-                    cajaPais.setText(m.getPais_fabricacion());
+                        Modelo m = lista.get(0);
 
-
-                    String valorAnio = String.valueOf(m.getAnio_modelo());
-                    ArrayAdapter adapterAnio = (ArrayAdapter) spinnerAnio.getAdapter();
-                    int posAnio = adapterAnio.getPosition(valorAnio);
-                    spinnerAnio.setSelection(posAnio);
+                        cajaNombre.setText(m.getNombre_modelo());
+                        cajaFabricante.setText(m.getFabricante());
+                        cajaPuertas.setText(String.valueOf(m.getNumero_puertas()));
+                        cajaPeso.setText(String.valueOf(m.getPeso()));
+                        cajaPasajeros.setText(String.valueOf(m.getCapacidad_pasajeros()));
+                        cajaColor.setText(m.getColor_base());
+                        cajaPais.setText(m.getPais_fabricacion());
 
 
-                    String valorCil = String.valueOf(m.getNumero_cilindros());
-                    ArrayAdapter adapterCil = (ArrayAdapter) spinnerCilindros.getAdapter();
-                    int posCil = adapterCil.getPosition(valorCil);
-                    spinnerCilindros.setSelection(posCil);
+                        String valorAnio = String.valueOf(m.getAnio_modelo());
+                        ArrayAdapter adapterAnio = (ArrayAdapter) spinnerAnio.getAdapter();
+                        int posAnio = adapterAnio.getPosition(valorAnio);
+                        spinnerAnio.setSelection(posAnio);
 
-                });
 
-            }
-        }).start();
+                        String valorCil = String.valueOf(m.getNumero_cilindros());
+                        ArrayAdapter adapterCil = (ArrayAdapter) spinnerCilindros.getAdapter();
+                        int posCil = adapterCil.getPosition(valorCil);
+                        spinnerCilindros.setSelection(posCil);
+
+                    });
+
+                }
+            }).start();
+
+        }else{
+
+            Toast.makeText(getBaseContext(), "No se encontró el modelo", Toast.LENGTH_LONG).show();
+
+
+        }
+
+
 
 
     }

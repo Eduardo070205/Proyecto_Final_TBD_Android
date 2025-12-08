@@ -12,6 +12,9 @@ import entities.Vehiculo;
 @Dao
 public interface VehiculoDAO {
 
+    @Query("SELECT COUNT(*) FROM vehiculo WHERE id_vehiculo = :idVehiculo")
+    int existeIdVehiculo(String idVehiculo);
+
     // ALTAS
     @Insert
     long agregarVehiculo(Vehiculo vehiculo);
@@ -25,7 +28,7 @@ public interface VehiculoDAO {
     int actualizarVehiculo(String idVehiculo, String numSerie, int idModelo, String fechaFab, double precio, int kilometraje, String fechaEntrada, String tipo, String estado);
 
     // CONSULTAS
-    @Query("SELECT * FROM vehiculo")
+    @Query("SELECT * FROM vehiculo ORDER BY id_vehiculo DESC")
     List<Vehiculo> mostrarTodos();
 
     @Query("SELECT * FROM vehiculo WHERE id_vehiculo LIKE :idVehiculo || '%'")

@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Recursos.Restablecer;
+import Recursos.Validaciones;
 import conexion.Autos_Amistosos_BD;
 import entities.Modelo;
 
@@ -70,84 +71,99 @@ public class ActivityAltasModelos extends Activity {
 
     public void agregarModelo(View v){
 
-        if(v.getId() == R.id.btnModelosAgregarAgregar){
+        if(!Validaciones.validarCamposVacios(cajaNombre, cajaFabricante, cajaPuertas, cajaPeso, cajaPasajeros, cajaColor, cajaPais)){
 
-            String nombre = cajaNombre.getText().toString().toUpperCase();
+            if(!Validaciones.validarSoloLetrasYNumeros(cajaNombre)){
 
-            int anio = Integer.parseInt(spinnerAnio.getSelectedItem().toString());
+                if(!Validaciones.validarSoloLetras(cajaFabricante, cajaColor, cajaPais)){
 
-            String fabricante = cajaFabricante.getText().toString().toUpperCase();
+                    if(v.getId() == R.id.btnModelosAgregarAgregar){
 
-            int cilindros = Integer.parseInt(spinnerCilindros.getSelectedItem().toString());
+                        String nombre = cajaNombre.getText().toString().toUpperCase();
 
-            int puertas = Integer.parseInt(cajaPuertas.getText().toString());
+                        int anio = Integer.parseInt(spinnerAnio.getSelectedItem().toString());
 
-            double peso = Integer.parseInt(cajaPeso.getText().toString());
+                        String fabricante = cajaFabricante.getText().toString().toUpperCase();
 
-            int pasajeros = Integer.parseInt(cajaPasajeros.getText().toString());
+                        int cilindros = Integer.parseInt(spinnerCilindros.getSelectedItem().toString());
 
-            String color = cajaColor.getText().toString();
+                        int puertas = Integer.parseInt(cajaPuertas.getText().toString());
 
-            String pais = cajaPais.getText().toString();
+                        double peso = Double.parseDouble(cajaPeso.getText().toString());
 
-            Modelo modelo = new Modelo(
+                        int pasajeros = Integer.parseInt(cajaPasajeros.getText().toString());
 
-                    nombre,
-                    anio,
-                    fabricante,
-                    cilindros,
-                    puertas,
-                    peso,
-                    pasajeros,
-                    color,
-                    pais
+                        String color = cajaColor.getText().toString().toUpperCase();
 
-            );
+                        String pais = cajaPais.getText().toString().toUpperCase();
 
+                        Modelo modelo = new Modelo(
 
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
+                                nombre,
+                                anio,
+                                fabricante,
+                                cilindros,
+                                puertas,
+                                peso,
+                                pasajeros,
+                                color,
+                                pais
 
-                    numFilas = 0;
-
-                    numFilas = bd.modeloDAO().agregarModelo(modelo);
-
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-
-                            if(numFilas == 1){
-
-                                AlertDialog.Builder builder = new AlertDialog.Builder(ActivityAltasModelos.this);
-                                builder.setTitle("Aviso");
-                                builder.setMessage("Se agrego el Modelo Correctamente.");
-                                builder.setPositiveButton("OK", null);
-                                builder.show();
-
-                                restablecer.restablecer(spinnerAnio, spinnerCilindros, cajaNombre, cajaFabricante, cajaPuertas, cajaPeso, cajaPasajeros, cajaColor, cajaPais);
+                        );
 
 
-                            } else {
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
 
-                                AlertDialog.Builder builder = new AlertDialog.Builder(ActivityAltasModelos.this);
-                                builder.setTitle("Aviso");
-                                builder.setMessage("No se pudo agregar el Modelo.");
-                                builder.setPositiveButton("OK", null);
-                                builder.show();
+                                numFilas = 0;
+
+                                numFilas = bd.modeloDAO().agregarModelo(modelo);
+
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+
+                                        if(numFilas >= 1){
+
+                                            AlertDialog.Builder builder = new AlertDialog.Builder(ActivityAltasModelos.this);
+                                            builder.setTitle("Aviso");
+                                            builder.setMessage("Se agrego el Modelo Correctamente.");
+                                            builder.setPositiveButton("OK", null);
+                                            builder.show();
+
+                                            restablecer.restablecer(spinnerAnio, spinnerCilindros, cajaNombre, cajaFabricante, cajaPuertas, cajaPeso, cajaPasajeros, cajaColor, cajaPais);
+
+
+                                        } else {
+
+                                            AlertDialog.Builder builder = new AlertDialog.Builder(ActivityAltasModelos.this);
+                                            builder.setTitle("Aviso");
+                                            builder.setMessage("No se pudo agregar el Modelo.");
+                                            builder.setPositiveButton("OK", null);
+                                            builder.show();
+
+
+                                        }
+
+
+                                    }
+                                });
 
 
                             }
+                        }).start();
 
-
-                        }
-                    });
-
+                    }
 
                 }
-            }).start();
+
+            }
 
         }
+
+
+
 
     }
 
@@ -176,7 +192,7 @@ public class ActivityAltasModelos extends Activity {
             }
         });
 
-        builder.setNegativeButton("No", null); // Solo cierra el diálogo
+        builder.setNegativeButton("No", null);
 
         builder.show();
 

@@ -12,7 +12,7 @@ import controllers.VehiculoDAO;
 import entities.Modelo;
 import entities.Vehiculo;
 
-@Database(entities = {Vehiculo.class, Modelo.class}, version = 1)
+@Database(entities = {Vehiculo.class, Modelo.class}, version = 3)
 public abstract class Autos_Amistosos_BD extends RoomDatabase {
 
     private static Autos_Amistosos_BD INSTANCE;

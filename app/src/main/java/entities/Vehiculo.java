@@ -49,7 +49,7 @@ public class Vehiculo {
 
     @NonNull
     @ColumnInfo(name = "fecha_entrada")
-    public String fehca_entrada;
+    public String fecha_entrada;
 
     @NonNull
     @ColumnInfo(name = "tipo")
@@ -60,14 +60,14 @@ public class Vehiculo {
     public String estado;
 
 
-    public Vehiculo(@NonNull String id_vehiculo, @NonNull String numero_serie, int id_modelo_fk, @NonNull String fecha_fabricacion, double precio, int kilometraje, @NonNull String fehca_entrada, @NonNull String tipo, @NonNull String estado) {
+    public Vehiculo(@NonNull String id_vehiculo, @NonNull String numero_serie, int id_modelo_fk, @NonNull String fecha_fabricacion, double precio, int kilometraje, @NonNull String fecha_entrada, @NonNull String tipo, @NonNull String estado) {
         this.id_vehiculo = id_vehiculo;
         this.numero_serie = numero_serie;
         this.id_modelo_fk = id_modelo_fk;
         this.fecha_fabricacion = fecha_fabricacion;
         this.precio = precio;
         this.kilometraje = kilometraje;
-        this.fehca_entrada = fehca_entrada;
+        this.fecha_entrada = fecha_entrada;
         this.tipo = tipo;
         this.estado = estado;
     }
@@ -124,12 +124,12 @@ public class Vehiculo {
     }
 
     @NonNull
-    public String getFehca_entrada() {
-        return fehca_entrada;
+    public String getFecha_entrada() {
+        return fecha_entrada;
     }
 
-    public void setFehca_entrada(@NonNull String fehca_entrada) {
-        this.fehca_entrada = fehca_entrada;
+    public void setFecha_entrada(@NonNull String fecha_entrada) {
+        this.fecha_entrada = fecha_entrada;
     }
 
     @NonNull
@@ -159,7 +159,7 @@ public class Vehiculo {
                 ", fecha_fabricacion='" + fecha_fabricacion + '\'' +
                 ", precio=" + precio +
                 ", kilometraje=" + kilometraje +
-                ", fehca_entrada='" + fehca_entrada + '\'' +
+                ", fecha_entrada='" + fecha_entrada + '\'' +
                 ", tipo='" + tipo + '\'' +
                 ", estado='" + estado + '\'' +
                 '}';
